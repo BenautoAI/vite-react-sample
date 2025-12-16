@@ -13,7 +13,7 @@ function Avatar(props: AvatarProps) {
       w-full
       '>
 
-      <div className='avatar__photo mr-20'>
+      <div className='avatar__photo mr-20 relative'>
         <img
           className='
           rounded-full
@@ -27,6 +27,18 @@ function Avatar(props: AvatarProps) {
           '
           src="./src/assets/photo.png"
         />
+        <div className='
+          absolute
+          bottom-[30%]
+          left-1/2
+          -translate-x-1/2
+          w-4
+          h-3
+          bg-pink-400
+          rounded-full
+          border-2
+          border-pink-500
+        '></div>
       </div>
 
       <div className='avatar__texts text-center justify-between'>
