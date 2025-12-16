@@ -29,6 +29,8 @@ function Avatar(props: AvatarProps) {
         />
       </div>
 
+      <div className='avatar__pink-circle w-12 h-12 rounded-full bg-pink-500 mr-4'></div>
+
       <div className='avatar__texts text-center justify-between'>
 
         <div className='text__title'>
