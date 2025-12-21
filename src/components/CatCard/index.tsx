@@ -1,47 +1,31 @@
+import React from 'react';
+
 interface CatCardProps {
-  imageUrl?: string;
-  altText?: string;
+  image?: string;
+  name: string;
+  description?: string;
 }
 
-function CatCard(props: CatCardProps) {
-  const defaultImage = "https://images.unsplash.com/photo-1574158622682-e40e69881006?w=800&q=80";
-  const defaultAlt = "Playful cat waving paw";
-
+const CatCard: React.FC<CatCardProps> = ({ image, name, description }) => {
   return (
-    <div className="
-      catcard__container
-      bg-gradient-to-b 
-      from-[#4DB8E8] 
-      to-[#2A9FD6]
-      rounded-xl
-      shadow-lg
-      overflow-hidden
-      w-full
-      max-w-md
-      h-96
-      flex
-      items-center
-      justify-center
-      p-8
-      hover:shadow-2xl
-      transition-shadow
-      duration-300
-    ">
-      <div className="catcard__image-wrapper flex items-center justify-center">
-        <img
-          className="
-            catcard__image
-            w-full
-            h-full
-            object-contain
-            max-h-80
-          "
-          src={props.imageUrl || defaultImage}
-          alt={props.altText || defaultAlt}
-        />
+    <div className="bg-green-500 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+      {image && (
+        <div className="w-full h-48 overflow-hidden">
+          <img 
+            src={image} 
+            alt={name} 
+            className="w-full h-full object-cover"
+          />
+        </div>
+      )}
+      <div className="p-4">
+        <h3 className="text-white text-xl font-bold mb-2">{name}</h3>
+        {description && (
+          <p className="text-white text-sm">{description}</p>
+        )}
       </div>
     </div>
   );
-}
+};
 
 export default CatCard;
