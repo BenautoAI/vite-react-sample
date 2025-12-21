@@ -20,6 +20,22 @@ function Cat({ className = '' }: CatProps) {
           className="w-full h-full object-cover"
         />
         
+        {/* Green Eyes Overlay */}
+        <div className="cat__eyes absolute top-16 left-1/2 transform -translate-x-1/2">
+          <div className="flex gap-6">
+            {/* Left Eye */}
+            <div className="relative w-8 h-10">
+              <div className="absolute inset-0 bg-green-500 rounded-full opacity-80"></div>
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3 h-4 bg-black rounded-full"></div>
+            </div>
+            {/* Right Eye */}
+            <div className="relative w-8 h-10">
+              <div className="absolute inset-0 bg-green-500 rounded-full opacity-80"></div>
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3 h-4 bg-black rounded-full"></div>
+            </div>
+          </div>
+        </div>
+
         {/* Green Paw Overlay */}
         <div className="cat__paw absolute top-8 right-12">
           <svg
