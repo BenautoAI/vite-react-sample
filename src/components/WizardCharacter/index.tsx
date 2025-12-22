@@ -13,7 +13,7 @@ function WizardCharacter(props: WizardCharacterProps) {
   return (
     <div className={`wizard__container relative ${sizeClasses[size]} flex items-center justify-center`}>
       {/* Background circle */}
-      <div className="wizard__background absolute inset-0 rounded-full border-4 border-red-600 bg-gradient-to-b from-amber-50 to-stone-200" />
+      <div className="wizard__background absolute inset-0 rounded-full border-4 border-blue-600 bg-gradient-to-b from-amber-50 to-stone-200 shadow-[inset_0_0_0_8px_#dc2626]" />
       
       {/* Horizontal dividing line */}
       <div className="wizard__divider absolute top-1/2 left-0 right-0 h-0.5 bg-amber-900 z-10" />
