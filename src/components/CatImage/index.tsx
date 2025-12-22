@@ -26,6 +26,8 @@ function CatImage(props: CatImageProps) {
             hover:scale-105
             transition-transform
             duration-300
+            border-4
+            border-red-500
           "
           src={props.imageUrl || "https://images.unsplash.com/photo-1574158622682-e40e69881006?w=500"}
           alt={props.altText || "Cute cat waving"}
