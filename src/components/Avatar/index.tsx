@@ -46,11 +46,11 @@ function Avatar(props: AvatarProps) {
 
       <div className='avatar__texts text-center justify-between'>
 
-        <div className='text__title'>
+        <div className='text__title text-green-500'>
           <h1>{props.nickname}</h1>
         </div>
 
-        <div className='text__name mt-3'>
+        <div className='text__name mt-3 text-green-500'>
           <h2>{props.realname}</h2>
         </div>
 
