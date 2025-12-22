@@ -5,13 +5,15 @@ interface AvatarProps {
 
 function Avatar(props: AvatarProps) {
   return (
-    <div className='
-      avatar__container 
-      flex 
-      flex-row
-      items-center
-      w-full
-      '>
+    <div 
+      className='
+        avatar__container 
+        flex 
+        flex-row
+        items-center
+        w-full
+      '
+    >
 
       <div className='avatar__photo mr-20'>
         <img
