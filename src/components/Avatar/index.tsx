@@ -13,20 +13,28 @@ function Avatar(props: AvatarProps) {
       w-full
       '>
 
-      <div className='avatar__photo mr-20'>
+      <div className='avatar__photo-wrapper flex items-center gap-4 mr-20'>
         <img
-          className='
-          rounded-full
-          hover:scale-x-110
-          hover:scale-y-110
-          animation-delay: 999s;
-          hover:animate-
-          bg-gradient-to-r 
-          p-[6px] 
-          from-[#6EE7B7] via-[#3B82F6] to-[#9333EA]"
-          '
-          src="./src/assets/photo.png"
+          className='fei__logo w-16 h-16'
+          src="./src/assets/fei-logo.png"
+          alt="FEI Logo"
         />
+        <div className='avatar__photo'>
+          <img
+            className='
+            rounded-full
+            hover:scale-x-110
+            hover:scale-y-110
+            animation-delay: 999s;
+            hover:animate-
+            bg-gradient-to-r 
+            p-[6px] 
+            from-[#6EE7B7] via-[#3B82F6] to-[#9333EA]"
+            '
+            src="./src/assets/photo.png"
+            alt="User avatar"
+          />
+        </div>
       </div>
 
       <div className='avatar__texts text-center justify-between'>
