@@ -62,6 +62,22 @@ function Avatar(props: AvatarProps) {
 
       </div>
 
+      <div className='avatar__foto-casa mt-4'>
+        <img
+          className='
+          rounded-lg
+          w-[200px]
+          h-[200px]
+          object-cover
+          shadow-lg
+          border-2
+          border-green-400
+          '
+          src="./src/assets/foto-casa.png"
+          alt="Foto Casa"
+        />
+      </div>
+
     </div>
   );
 }
