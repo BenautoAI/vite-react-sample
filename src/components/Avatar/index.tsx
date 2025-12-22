@@ -38,6 +38,7 @@ function Avatar(props: AvatarProps) {
           h-[80px]
           pointer-events-none
           '
+          style={{ filter: 'hue-rotate(120deg) saturate(1.5)' }}
           src="./src/assets/hat.png"
           alt="Hat"
         />
