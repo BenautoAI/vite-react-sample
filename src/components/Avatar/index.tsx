@@ -13,20 +13,43 @@ function Avatar(props: AvatarProps) {
       w-full
       '>
 
-      <div className='avatar__photo mr-20'>
-        <img
-          className='
-          rounded-full
-          hover:scale-x-110
-          hover:scale-y-110
-          animation-delay: 999s;
-          hover:animate-
-          bg-gradient-to-r 
-          p-[6px] 
-          from-[#6EE7B7] via-[#3B82F6] to-[#9333EA]"
-          '
-          src="./src/assets/photo.png"
-        />
+      <div className='avatar__photo-container mr-20 relative'>
+        <div className='avatar__hat 
+          absolute 
+          -top-8 
+          left-1/2 
+          -translate-x-1/2 
+          text-4xl
+          z-10
+          hover:rotate-12
+          transition-transform
+          duration-300'>
+          🎩
+        </div>
+        <div className='avatar__photo'>
+          <img
+            className='
+            rounded-full
+            hover:scale-x-110
+            hover:scale-y-110
+            animation-delay: 999s;
+            hover:animate-
+            bg-gradient-to-r 
+            p-[6px] 
+            from-[#6EE7B7] via-[#3B82F6] to-[#9333EA]"
+            '
+            src="./src/assets/photo.png"
+          />
+        </div>
+        <div className='avatar__nose 
+          absolute 
+          bottom-8 
+          left-1/2 
+          -translate-x-1/2 
+          text-2xl
+          z-10'>
+          🐽
+        </div>
       </div>
 
       <div className='avatar__texts text-center justify-between'>
