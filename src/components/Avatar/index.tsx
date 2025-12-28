@@ -46,6 +46,32 @@ function Avatar(props: AvatarProps) {
           '
           src="./src/assets/photo.png"
         />
+        <div className='avatar__nose absolute bottom-[25%] left-[50%] translate-x-[-50%] z-20'>
+          <div className='
+            w-[20px] h-[18px]
+            bg-[#FFB6C1]
+            rounded-full
+            shadow-md
+            hover:scale-110
+            transition-transform
+            duration-200
+          '>
+            <div className='
+              absolute top-[30%] left-[25%]
+              w-[4px] h-[4px]
+              bg-[#FF69B4]
+              rounded-full
+              opacity-60
+            '></div>
+            <div className='
+              absolute top-[30%] right-[25%]
+              w-[4px] h-[4px]
+              bg-[#FF69B4]
+              rounded-full
+              opacity-60
+            '></div>
+          </div>
+        </div>
       </div>
 
       <div className='avatar__texts text-center justify-between'>
