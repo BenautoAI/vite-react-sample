@@ -13,7 +13,14 @@ function Avatar(props: AvatarProps) {
       w-full
       '>
 
-      <div className='avatar__photo mr-20'>
+      <div className='avatar__photo mr-20 relative'>
+        <div className='avatar__hat absolute top-[-30px] left-1/2 transform -translate-x-1/2 z-10'>
+          <img
+            className='w-16 h-16'
+            src="./src/assets/hat.png"
+            alt="Hat decoration"
+          />
+        </div>
         <img
           className='
           rounded-full
@@ -26,7 +33,11 @@ function Avatar(props: AvatarProps) {
           from-[#6EE7B7] via-[#3B82F6] to-[#9333EA]"
           '
           src="./src/assets/photo.png"
+          alt="User avatar"
         />
+        <div className='avatar__nose absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20'>
+          <div className='w-6 h-6 bg-pink-400 rounded-full'></div>
+        </div>
       </div>
 
       <div className='avatar__texts text-center justify-between'>
