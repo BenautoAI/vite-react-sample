@@ -13,7 +13,26 @@ function Avatar(props: AvatarProps) {
       w-full
       '>
 
-      <div className='avatar__photo mr-20'>
+      <div className='avatar__photo mr-20 relative'>
+        <div className='avatar__hat absolute top-[-30px] left-[50%] translate-x-[-50%] z-10'>
+          <div className='
+            w-[60px] h-[60px]
+            bg-gradient-to-br from-[#FF6B6B] via-[#FFE66D] to-[#4ECDC4]
+            rounded-t-full
+            border-b-[8px] border-[#2C3E50]
+            shadow-lg
+            hover:rotate-12
+            transition-transform
+            duration-300
+          '>
+            <div className='
+              absolute bottom-[-8px] left-[50%] translate-x-[-50%]
+              w-[80px] h-[8px]
+              bg-[#2C3E50]
+              rounded-full
+            '></div>
+          </div>
+        </div>
         <img
           className='
           rounded-full
