@@ -13,7 +13,10 @@ function Avatar(props: AvatarProps) {
       w-full
       '>
 
-      <div className='avatar__photo mr-20'>
+      <div className='avatar__photo mr-20 relative'>
+        <div className='avatar__hat absolute top-[-20px] left-[50%] translate-x-[-50%] text-4xl z-10'>
+          🎩
+        </div>
         <img
           className='
           rounded-full
