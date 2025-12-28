@@ -31,6 +31,9 @@ function Avatar(props: AvatarProps) {
           '
           src="./src/assets/photo.png"
         />
+        <div className='avatar__nose absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20'>
+          <div className='w-6 h-5 bg-pink-400 rounded-full shadow-md'></div>
+        </div>
       </div>
 
       <div className='avatar__texts text-center justify-between'>
