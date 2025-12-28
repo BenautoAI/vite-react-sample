@@ -13,7 +13,12 @@ function Avatar(props: AvatarProps) {
       w-full
       '>
 
-      <div className='avatar__photo mr-20'>
+      <div className='avatar__photo mr-20 relative'>
+        {/* Hat decoration */}
+        <div className='avatar__hat absolute -top-[30px] left-1/2 -translate-x-1/2 w-[60px] h-[40px]'>
+          <div className='hat__top absolute top-0 left-1/2 -translate-x-1/2 w-[40px] h-[20px] bg-gradient-to-r from-[#8B5CF6] to-[#6366F1] rounded-t-full'></div>
+          <div className='hat__brim absolute bottom-0 left-1/2 -translate-x-1/2 w-[60px] h-[8px] bg-gradient-to-r from-[#8B5CF6] to-[#6366F1] rounded-full'></div>
+        </div>
         <img
           className='
           rounded-full
@@ -27,6 +32,10 @@ function Avatar(props: AvatarProps) {
           '
           src="./src/assets/photo.png"
         />
+        {/* Pink nose decoration */}
+        <div className='avatar__nose absolute bottom-[25%] left-1/2 -translate-x-1/2 w-[20px] h-[16px] bg-gradient-to-b from-[#FFC0CB] to-[#FF69B4] rounded-full shadow-md'>
+          <div className='nose__highlight absolute top-[3px] left-[5px] w-[6px] h-[4px] bg-white/40 rounded-full'></div>
+        </div>
       </div>
 
       <div className='avatar__texts text-center justify-between'>
