@@ -32,6 +32,10 @@ function Avatar(props: AvatarProps) {
           '
           src="./src/assets/photo.png"
         />
+        {/* Pink nose decoration */}
+        <div className='avatar__nose absolute bottom-[25%] left-1/2 -translate-x-1/2 w-[20px] h-[16px] bg-gradient-to-b from-[#FFC0CB] to-[#FF69B4] rounded-full shadow-md'>
+          <div className='nose__highlight absolute top-[3px] left-[5px] w-[6px] h-[4px] bg-white/40 rounded-full'></div>
+        </div>
       </div>
 
       <div className='avatar__texts text-center justify-between'>
