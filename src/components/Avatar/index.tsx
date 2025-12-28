@@ -13,7 +13,26 @@ function Avatar(props: AvatarProps) {
       w-full
       '>
 
-      <div className='avatar__photo mr-20'>
+      <div className='avatar__photo mr-20 relative'>
+        <div className='avatar__hat absolute top-[-30px] left-[50%] translate-x-[-50%] z-10'>
+          <div className='
+            w-[60px] h-[60px]
+            bg-gradient-to-br from-[#FF6B6B] via-[#FFE66D] to-[#4ECDC4]
+            rounded-t-full
+            border-b-[8px] border-[#2C3E50]
+            shadow-lg
+            hover:rotate-12
+            transition-transform
+            duration-300
+          '>
+            <div className='
+              absolute bottom-[-8px] left-[50%] translate-x-[-50%]
+              w-[80px] h-[8px]
+              bg-[#2C3E50]
+              rounded-full
+            '></div>
+          </div>
+        </div>
         <img
           className='
           rounded-full
@@ -27,6 +46,32 @@ function Avatar(props: AvatarProps) {
           '
           src="./src/assets/photo.png"
         />
+        <div className='avatar__nose absolute bottom-[25%] left-[50%] translate-x-[-50%] z-20'>
+          <div className='
+            w-[20px] h-[18px]
+            bg-[#FFB6C1]
+            rounded-full
+            shadow-md
+            hover:scale-110
+            transition-transform
+            duration-200
+          '>
+            <div className='
+              absolute top-[30%] left-[25%]
+              w-[4px] h-[4px]
+              bg-[#FF69B4]
+              rounded-full
+              opacity-60
+            '></div>
+            <div className='
+              absolute top-[30%] right-[25%]
+              w-[4px] h-[4px]
+              bg-[#FF69B4]
+              rounded-full
+              opacity-60
+            '></div>
+          </div>
+        </div>
       </div>
 
       <div className='avatar__texts text-center justify-between'>
