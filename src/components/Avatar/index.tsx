@@ -17,6 +17,9 @@ function Avatar(props: AvatarProps) {
         <div className='avatar__hat absolute -top-8 left-1/2 transform -translate-x-1/2 text-4xl z-10'>
           🎩
         </div>
+        <div className='avatar__nose absolute bottom-8 left-1/2 transform -translate-x-1/2 text-3xl z-10'>
+          🐽
+        </div>
         <img
           className='
           rounded-full
