@@ -17,6 +17,9 @@ function Avatar(props: AvatarProps) {
         <div className='avatar__hat absolute top-[-30px] left-[50%] translate-x-[-50%] text-5xl z-10'>
           🎩
         </div>
+        <div className='avatar__nose absolute bottom-[35%] left-[50%] translate-x-[-50%] text-3xl z-10'>
+          <span style={{ filter: 'hue-rotate(320deg) saturate(200%)' }}>👃</span>
+        </div>
         <img
           className='
           rounded-full
