@@ -1,4 +1,5 @@
 import Cat from "../../components/Cat";
+import FeiAvatar from "./FeiAvatar";
 
 function CatPage() {
   return (
@@ -15,6 +16,9 @@ function CatPage() {
       "
     >
       <div className="text-center">
+        <div className="flex justify-center mb-6">
+          <FeiAvatar />
+        </div>
         <h1 className="text-5xl font-bold text-white mb-8 drop-shadow-lg">
           Playful Cat with Party Hat! 🎉
         </h1>
