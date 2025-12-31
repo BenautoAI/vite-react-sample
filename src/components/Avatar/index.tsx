@@ -1,6 +1,7 @@
 interface AvatarProps {
-  nickname: string,
-  realname: string
+  nickname: string;
+  realname: string;
+  photoUrl?: string;
 }
 
 function Avatar(props: AvatarProps) {
@@ -25,7 +26,8 @@ function Avatar(props: AvatarProps) {
           p-[6px] 
           from-[#6EE7B7] via-[#3B82F6] to-[#9333EA]"
           '
-          src="./src/assets/photo.png"
+          src={props.photoUrl || "./src/assets/photo.png"}
+          alt={`${props.nickname} avatar`}
         />
       </div>
 
