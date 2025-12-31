@@ -12,6 +12,7 @@ function CatAvatar({ size = 200 }: CatAvatarProps) {
         viewBox="0 0 400 400"
         xmlns="http://www.w3.org/2000/svg"
         className="w-full h-full"
+        style={{ outline: '3px solid red' }}
       >
         {/* Background Circle */}
         <circle cx="200" cy="200" r="180" fill="#E8DCC8" stroke="#6B4E3D" strokeWidth="3" />
