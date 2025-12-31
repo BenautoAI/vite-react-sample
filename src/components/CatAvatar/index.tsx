@@ -1,5 +1,3 @@
-import React from 'react';
-
 export interface CatAvatarProps {
   nickname: string;
   realname: string;
