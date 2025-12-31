@@ -9,6 +9,10 @@ function FeedPage() {
           realname="Felipe Aguiar" nickname="@Felipao__DIO🚀" />
       </div>
       <div className="mt-10">
+        <Avatar
+          realname="Fei Zhang" nickname="@fei_dev" />
+      </div>
+      <div className="mt-10">
         <FeedGrid />
       </div>
     </>
