@@ -25,7 +25,7 @@ function Avatar(props: AvatarProps) {
           p-[6px] 
           from-[#6EE7B7] via-[#3B82F6] to-[#9333EA]"
           '
-          src="./src/assets/photo.png"
+          src="https://images.unsplash.com/photo-1574158622682-e40e69881006?w=400&h=400&fit=crop"
         />
       </div>
 
