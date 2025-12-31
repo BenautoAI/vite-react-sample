@@ -25,7 +25,8 @@ function Avatar(props: AvatarProps) {
           p-[6px] 
           from-[#6EE7B7] via-[#3B82F6] to-[#9333EA]"
           '
-          src="https://images.unsplash.com/photo-1574158622682-e40e69881006?w=400&h=400&fit=crop"
+          src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=400&h=400&fit=crop"
+          alt="Cat avatar"
         />
       </div>
 
