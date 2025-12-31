@@ -6,7 +6,16 @@ function FeedPage() {
     <>
       <div>
         <Avatar
-          realname="Felipe Aguiar" nickname="@Felipao__DIO🚀" />
+          realname="Felipe Aguiar" 
+          nickname="@Felipao__DIO🚀" 
+        />
+      </div>
+      <div className="mt-10">
+        <Avatar
+          realname="Fei Zhang" 
+          nickname="@Fei_Dev" 
+          profileImage="https://avatar.iran.liara.run/public/girl"
+        />
       </div>
       <div className="mt-10">
         <FeedGrid />
