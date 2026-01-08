@@ -33,7 +33,7 @@ function ViteFeiAvatar() {
             rounded-full
             w-full
             h-full
-            bg-white
+            bg-red-500
             flex
             items-center
             justify-center
