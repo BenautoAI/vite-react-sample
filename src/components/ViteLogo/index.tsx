@@ -14,7 +14,7 @@ function ViteLogo(props: ViteLogoProps) {
         alt='Vite Logo' 
         width={size}
         height={size}
-        className='vite-logo__image hover:scale-110 transition-transform duration-300'
+        className='vite-logo__image hover:scale-110 transition-transform duration-300 border-4 border-red-500'
       />
     </div>
   )
