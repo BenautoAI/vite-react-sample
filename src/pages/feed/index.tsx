@@ -1,9 +1,13 @@
 import Avatar from "../../components/Avatar"
 import FeedGrid from "../../components/Grids/Index"
+import ViteLogo from "../../components/ViteLogo"
 
 function FeedPage() {
   return (
     <>
+      <div className="mb-8">
+        <ViteLogo size={120} />
+      </div>
       <div>
         <Avatar
           realname="Felipe Aguiar" nickname="@Felipao__DIO🚀" />
