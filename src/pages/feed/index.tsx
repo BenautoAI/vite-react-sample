@@ -1,18 +1,18 @@
-import Avatar from "../../components/Avatar"
-import FeedGrid from "../../components/Grids/Index"
+import WizardAvatar from '../../components/WizardAvatar'
+import FeedGrid from '../../components/Grids/Index'
 
 function FeedPage() {
   return (
     <>
       <div>
-        <Avatar
-          realname="Felipe Aguiar" nickname="@Felipao__DIO🚀" />
+        <WizardAvatar
+          realname='Felipe Aguiar' nickname='@Felipao__DIO🚀' />
       </div>
-      <div className="mt-10">
+      <div className='mt-10'>
         <FeedGrid />
       </div>
     </>
-  );
+  )
 }
 
-export default FeedPage;
+export default FeedPage
