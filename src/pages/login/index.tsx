@@ -1,6 +1,6 @@
 function LoginPage() {
   return (
-    <div className='login__container flex flex-col items-center justify-center min-h-screen bg-gray-50 dark:bg-gray-900 px-4'>
+    <div className='login__container flex flex-col items-center justify-center min-h-screen bg-green-500 dark:bg-green-800 px-4'>
       <div className='login__content w-full max-w-md'>
         {/* Vite Logo */}
         <div className='login__logo flex justify-center mb-8'>
