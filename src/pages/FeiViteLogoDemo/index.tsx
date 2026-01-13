@@ -30,13 +30,22 @@ function FeiViteLogoDemo() {
             <p className="text-sm text-gray-500 mt-4 text-center">100x120 pixels</p>
           </div>
           
+          {/* Medium Size */}
+          <div className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center">
+            <h2 className="text-xl font-semibold text-gray-700 mb-4">Medium Size</h2>
+            <div className="flex justify-center items-center h-48">
+              <FeiViteLogo width={125} height={150} />
+            </div>
+            <p className="text-sm text-gray-500 mt-4 text-center">125x150 pixels</p>
+          </div>
+          
           {/* Large Size */}
           <div className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center">
             <h2 className="text-xl font-semibold text-gray-700 mb-4">Large Size</h2>
             <div className="flex justify-center items-center h-48">
-              <FeiViteLogo width={120} height={140} />
+              <FeiViteLogo width={175} height={210} />
             </div>
-            <p className="text-sm text-gray-500 mt-4 text-center">120x140 pixels</p>
+            <p className="text-sm text-gray-500 mt-4 text-center">175x210 pixels</p>
           </div>
           
           {/* Dark Background */}
