@@ -280,6 +280,37 @@ function WizardRobot({ size = 400 }: WizardRobotProps) {
             strokeLinecap="round"
           />
 
+          {/* Vite Logo */}
+          <g transform="translate(75, 210)">
+            {/* Vite logo background glow */}
+            <defs>
+              <linearGradient id="vite-gradient-1" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#41D1FF" />
+                <stop offset="100%" stopColor="#BD34FE" />
+              </linearGradient>
+              <linearGradient id="vite-gradient-2" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#FFEA83" />
+                <stop offset="100%" stopColor="#FFDD35" />
+              </linearGradient>
+            </defs>
+            
+            {/* Lightning bolt (back part - purple/blue gradient) */}
+            <path
+              d="M 12 1 L 4 13 L 9 13 L 8 23 L 18 9 L 13 9 L 15 1 Z"
+              fill="url(#vite-gradient-1)"
+              stroke="#1F2937"
+              strokeWidth="0.8"
+            />
+            
+            {/* Lightning bolt (front part - yellow gradient) */}
+            <path
+              d="M 13 1 L 9 10 L 11 10 L 8 17 L 14 9 L 12 9 L 14 1 Z"
+              fill="url(#vite-gradient-2)"
+              stroke="#1F2937"
+              strokeWidth="0.6"
+            />
+          </g>
+
           {/* Left upper hand */}
           <g transform="translate(105, 230)">
             <ellipse
