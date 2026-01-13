@@ -1,31 +1,19 @@
 interface AvatarProps {
   nickname: string,
-  realname: string
+  realname: string,
+  imageSrc?: string,
+  imageAlt?: string
 }
 
 function Avatar(props: AvatarProps) {
   return (
-    <div className='
-      avatar__container 
-      flex 
-      flex-row
-      items-center
-      w-full
-      '>
+    <div className='avatar__container flex flex-row items-center w-full'>
 
       <div className='avatar__photo mr-20'>
         <img
-          className='
-          rounded-full
-          hover:scale-x-110
-          hover:scale-y-110
-          animation-delay: 999s;
-          hover:animate-
-          bg-gradient-to-r 
-          p-[6px] 
-          from-[#6EE7B7] via-[#3B82F6] to-[#9333EA]"
-          '
-          src="./src/assets/photo.png"
+          className='rounded-full hover:scale-x-110 hover:scale-y-110 bg-gradient-to-r p-[6px] from-[#6EE7B7] via-[#3B82F6] to-[#9333EA]'
+          src={props.imageSrc || "./src/assets/photo.png"}
+          alt={props.imageAlt || props.nickname}
         />
       </div>
 
@@ -48,7 +36,7 @@ function Avatar(props: AvatarProps) {
       </div>
 
     </div>
-  );
+  )
 }
 
-export default Avatar;
+export default Avatar
