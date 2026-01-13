@@ -2,9 +2,88 @@ interface WizardRobotProps {
   size?: number
 }
 
-function WizardRobot({ size = 400 }: WizardRobotProps) {
+function WizardRobot(props: WizardRobotProps) {
+  const size = props.size || 400
+
   return (
     <div className='wizard-robot__container flex items-center justify-center w-full p-8'>
+      <style>
+        {`
+          @keyframes dance {
+            0%, 100% {
+              transform: translateY(0) rotate(0deg);
+            }
+            25% {
+              transform: translateY(-10px) rotate(-5deg);
+            }
+            50% {
+              transform: translateY(0) rotate(0deg);
+            }
+            75% {
+              transform: translateY(-10px) rotate(5deg);
+            }
+          }
+
+          @keyframes wave-left {
+            0%, 100% {
+              transform: rotate(-20deg);
+            }
+            50% {
+              transform: rotate(-40deg);
+            }
+          }
+
+          @keyframes wave-right {
+            0%, 100% {
+              transform: rotate(20deg);
+            }
+            50% {
+              transform: rotate(40deg);
+            }
+          }
+
+          @keyframes bounce-legs {
+            0%, 100% {
+              transform: translateY(0);
+            }
+            50% {
+              transform: translateY(-5px);
+            }
+          }
+
+          @keyframes wiggle-hat {
+            0%, 100% {
+              transform: rotate(-2deg);
+            }
+            50% {
+              transform: rotate(2deg);
+            }
+          }
+
+          .wizard-robot {
+            animation: dance 1.5s ease-in-out infinite;
+          }
+
+          #wizard-hat {
+            transform-origin: 200px 140px;
+            animation: wiggle-hat 0.5s ease-in-out infinite;
+          }
+
+          #robot-legs {
+            animation: bounce-legs 0.75s ease-in-out infinite;
+          }
+
+          #left-arms {
+            transform-origin: 130px 240px;
+            animation: wave-left 0.6s ease-in-out infinite;
+          }
+
+          #right-arms {
+            transform-origin: 270px 240px;
+            animation: wave-right 0.6s ease-in-out infinite;
+          }
+        `}
+      </style>
       <svg
         width={size}
         height={size}
@@ -26,6 +105,15 @@ function WizardRobot({ size = 400 }: WizardRobotProps) {
             <circle cx="7" cy="5" r="0.4" fill="#8B7355" opacity="0.2" />
             <circle cx="4" cy="8" r="0.3" fill="#8B7355" opacity="0.25" />
           </pattern>
+          <linearGradient id="viteGrad1" x1="-.828%" x2="57.636%" y1="7.652%" y2="78.411%">
+            <stop offset="0%" stopColor="#41D1FF"></stop>
+            <stop offset="100%" stopColor="#BD34FE"></stop>
+          </linearGradient>
+          <linearGradient id="viteGrad2" x1="43.376%" x2="50.316%" y1="2.242%" y2="89.03%">
+            <stop offset="0%" stopColor="#FFEA83"></stop>
+            <stop offset="8.333%" stopColor="#FFDD35"></stop>
+            <stop offset="100%" stopColor="#FFA800"></stop>
+          </linearGradient>
         </defs>
 
         {/* Background rectangle with texture */}
@@ -311,7 +399,7 @@ function WizardRobot({ size = 400 }: WizardRobotProps) {
             />
           </g>
 
-          {/* Left upper hand */}
+          {/* Left upper hand with Vite logo */}
           <g transform="translate(105, 230)">
             <ellipse
               cx="0"
@@ -326,6 +414,12 @@ function WizardRobot({ size = 400 }: WizardRobotProps) {
             <line x1="-8" y1="-5" x2="-10" y2="-12" stroke="#1F2937" strokeWidth="2" strokeLinecap="round" />
             <line x1="-2" y1="-6" x2="-2" y2="-14" stroke="#1F2937" strokeWidth="2" strokeLinecap="round" />
             <line x1="4" y1="-6" x2="4" y2="-14" stroke="#1F2937" strokeWidth="2" strokeLinecap="round" />
+            
+            {/* Vite Logo in left hand */}
+            <g transform="translate(-12, -25) scale(0.15)">
+              <path fill="url(#viteGrad1)" d="M255.153 37.938L134.897 252.976c-2.483 4.44-8.862 4.466-11.382.048L.875 37.958c-2.746-4.814 1.371-10.646 6.827-9.67l120.385 21.517a6.537 6.537 0 0 0 2.322-.004l117.867-21.483c5.438-.991 9.574 4.796 6.877 9.62Z"></path>
+              <path fill="url(#viteGrad2)" d="M185.432.063L96.44 17.501a3.268 3.268 0 0 0-2.634 3.014l-5.474 92.456a3.268 3.268 0 0 0 3.997 3.378l24.777-5.718c2.318-.535 4.413 1.507 3.936 3.838l-7.361 36.047c-.495 2.426 1.782 4.5 4.151 3.78l15.304-4.649c2.372-.72 4.652 1.36 4.15 3.788l-11.698 56.621c-.732 3.542 3.979 5.473 5.943 2.437l1.313-2.028l72.516-144.72c1.215-2.423-.88-5.186-3.54-4.672l-25.505 4.922c-2.396.462-4.435-1.77-3.759-4.114l16.646-57.705c.677-2.35-1.37-4.583-3.769-4.113Z"></path>
+            </g>
           </g>
 
           {/* Left lower hand */}
@@ -345,7 +439,7 @@ function WizardRobot({ size = 400 }: WizardRobotProps) {
             <line x1="4" y1="-6" x2="4" y2="-14" stroke="#1F2937" strokeWidth="2" strokeLinecap="round" />
           </g>
 
-          {/* Right upper hand */}
+          {/* Right upper hand with Vite logo */}
           <g transform="translate(295, 230)">
             <ellipse
               cx="0"
@@ -360,6 +454,12 @@ function WizardRobot({ size = 400 }: WizardRobotProps) {
             <line x1="-4" y1="-6" x2="-4" y2="-14" stroke="#1F2937" strokeWidth="2" strokeLinecap="round" />
             <line x1="2" y1="-6" x2="2" y2="-14" stroke="#1F2937" strokeWidth="2" strokeLinecap="round" />
             <line x1="8" y1="-5" x2="10" y2="-12" stroke="#1F2937" strokeWidth="2" strokeLinecap="round" />
+            
+            {/* Vite Logo in right hand */}
+            <g transform="translate(-12, -25) scale(0.15)">
+              <path fill="url(#viteGrad1)" d="M255.153 37.938L134.897 252.976c-2.483 4.44-8.862 4.466-11.382.048L.875 37.958c-2.746-4.814 1.371-10.646 6.827-9.67l120.385 21.517a6.537 6.537 0 0 0 2.322-.004l117.867-21.483c5.438-.991 9.574 4.796 6.877 9.62Z"></path>
+              <path fill="url(#viteGrad2)" d="M185.432.063L96.44 17.501a3.268 3.268 0 0 0-2.634 3.014l-5.474 92.456a3.268 3.268 0 0 0 3.997 3.378l24.777-5.718c2.318-.535 4.413 1.507 3.936 3.838l-7.361 36.047c-.495 2.426 1.782 4.5 4.151 3.78l15.304-4.649c2.372-.72 4.652 1.36 4.15 3.788l-11.698 56.621c-.732 3.542 3.979 5.473 5.943 2.437l1.313-2.028l72.516-144.72c1.215-2.423-.88-5.186-3.54-4.672l-25.505 4.922c-2.396.462-4.435-1.77-3.759-4.114l16.646-57.705c.677-2.35-1.37-4.583-3.769-4.113Z"></path>
+            </g>
           </g>
 
           {/* Right lower hand */}
