@@ -14,8 +14,16 @@ function WizardAvatar(props: WizardAvatarProps) {
               className='w-full h-full'
               xmlns='http://www.w3.org/2000/svg'
             >
-              {/* Background Circle */}
-              <circle cx="200" cy="200" r="150" fill="#E8DCC8" stroke="#7A5A4A" strokeWidth="3" />
+              {/* Background Circle with Sunset Gradient */}
+              <defs>
+                <linearGradient id="sunsetGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stopColor="#FF6B35" />
+                  <stop offset="40%" stopColor="#F7931E" />
+                  <stop offset="70%" stopColor="#FFA07A" />
+                  <stop offset="100%" stopColor="#FFB6C1" />
+                </linearGradient>
+              </defs>
+              <circle cx="200" cy="200" r="150" fill="url(#sunsetGradient)" stroke="#7A5A4A" strokeWidth="3" />
               
               {/* Vitruvian Man Guide Lines */}
               <line x1="50" y1="200" x2="350" y2="200" stroke="#7A5A4A" strokeWidth="1" opacity="0.4" />
