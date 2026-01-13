@@ -85,10 +85,7 @@ function LoginPage() {
       justify-center 
       min-h-screen 
       w-full
-      bg-gradient-to-br 
-      from-[#1a1a1a] 
-      via-[#242424] 
-      to-[#2d2d2d]
+      bg-red-500
     ">
       <div className="
         login__card
