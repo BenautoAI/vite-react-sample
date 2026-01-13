@@ -13,7 +13,7 @@ function FeiViteLogoDemo() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Default Size */}
-          <div className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center">
+          <div className="bg-blue-100 rounded-lg shadow-lg p-6 flex flex-col items-center">
             <h2 className="text-xl font-semibold text-gray-700 mb-4">Default Size</h2>
             <div className="flex justify-center items-center h-48">
               <FeiViteLogo />
@@ -22,7 +22,7 @@ function FeiViteLogoDemo() {
           </div>
           
           {/* Small Size */}
-          <div className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center">
+          <div className="bg-green-100 rounded-lg shadow-lg p-6 flex flex-col items-center">
             <h2 className="text-xl font-semibold text-gray-700 mb-4">Small Size</h2>
             <div className="flex justify-center items-center h-48">
               <FeiViteLogo width={100} height={120} />
@@ -31,7 +31,7 @@ function FeiViteLogoDemo() {
           </div>
           
           {/* Medium Size */}
-          <div className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center">
+          <div className="bg-yellow-100 rounded-lg shadow-lg p-6 flex flex-col items-center">
             <h2 className="text-xl font-semibold text-gray-700 mb-4">Medium Size</h2>
             <div className="flex justify-center items-center h-48">
               <FeiViteLogo width={125} height={150} />
@@ -40,7 +40,7 @@ function FeiViteLogoDemo() {
           </div>
           
           {/* Large Size */}
-          <div className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center">
+          <div className="bg-pink-100 rounded-lg shadow-lg p-6 flex flex-col items-center">
             <h2 className="text-xl font-semibold text-gray-700 mb-4">Large Size</h2>
             <div className="flex justify-center items-center h-48">
               <FeiViteLogo width={175} height={210} />
@@ -67,7 +67,7 @@ function FeiViteLogoDemo() {
           </div>
           
           {/* Extra Small for Icons */}
-          <div className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center">
+          <div className="bg-purple-100 rounded-lg shadow-lg p-6 flex flex-col items-center">
             <h2 className="text-xl font-semibold text-gray-700 mb-4">Icon Size</h2>
             <div className="flex justify-center items-center h-48 gap-4">
               <FeiViteLogo width={64} height={76} />
