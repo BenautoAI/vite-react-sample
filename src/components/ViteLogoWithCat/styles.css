@@ -1,0 +1,82 @@
+.vite-logo-container {
+  position: relative;
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+  margin: 2rem auto;
+}
+
+.vite-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: filter 300ms, transform 300ms;
+  will-change: filter, transform;
+}
+
+.vite-logo-container:hover .vite-logo {
+  filter: drop-shadow(0 0 2em #646cffaa);
+  transform: rotate(5deg) scale(1.05);
+}
+
+.cat-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  transition: all 400ms ease-in-out;
+  z-index: 2;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 3px;
+}
+
+.cat-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+.cat-hovering {
+  transform: translate(-50%, -50%) scale(1.2) rotate(10deg);
+  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.6);
+}
+
+/* Animation for initial load */
+@keyframes cat-bounce-in {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+  }
+  60% {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+
+.cat-overlay {
+  animation: cat-bounce-in 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .vite-logo-container {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .cat-overlay {
+    width: 60px;
+    height: 60px;
+  }
+}
