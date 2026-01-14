@@ -13,7 +13,16 @@ function Avatar(props: AvatarProps) {
       w-full
       '>
 
-      <div className='avatar__photo mr-20'>
+      <div className='avatar__photo mr-20 relative'>
+        <div className='
+          absolute
+          inset-0
+          rounded-full
+          border-4
+          border-[#8B4513]
+          pointer-events-none
+          z-10
+        '></div>
         <img
           className='
           rounded-full
@@ -23,9 +32,7 @@ function Avatar(props: AvatarProps) {
           hover:animate-
           bg-gradient-to-r 
           p-[6px] 
-          from-[#6EE7B7] via-[#3B82F6] to-[#9333EA]"
-          border-4
-          border-red-500
+          from-[#6EE7B7] via-[#3B82F6] to-[#9333EA]
           '
           src="./src/assets/photo.png"
         />
