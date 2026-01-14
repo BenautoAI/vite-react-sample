@@ -1,12 +1,22 @@
 interface ViteLogoProps {
+  size?: 'small' | 'medium' | 'large';
   width?: number;
   height?: number;
   className?: string;
 }
 
 function ViteLogo(props: ViteLogoProps) {
-  const width = props.width ?? 31.88;
-  const height = props.height ?? 32;
+  // Size presets
+  const sizeMap = {
+    small: { width: 31.88, height: 32 },
+    medium: { width: 64, height: 64 },
+    large: { width: 128, height: 128 },
+  };
+
+  // Priority: custom width/height > size prop > default (small)
+  const defaultSize = sizeMap[props.size ?? 'small'];
+  const width = props.width ?? defaultSize.width;
+  const height = props.height ?? defaultSize.height;
   const className = props.className ?? '';
 
   return (
