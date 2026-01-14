@@ -54,10 +54,10 @@ function LoginPage() {
       <div className='login__container w-full max-w-md px-8 py-10 bg-[#1a1a1a] rounded-2xl shadow-2xl border border-gray-800'>
         {/* Header */}
         <div className='login__header text-center mb-8'>
-          <h1 className='text-4xl font-bold bg-gradient-to-r from-[#6EE7B7] via-[#3B82F6] to-[#9333EA] bg-clip-text text-transparent'>
+          <h1 className='text-4xl font-bold text-red-600'>
             Welcome Back
           </h1>
-          <p className='text-gray-400 mt-2'>Sign in to continue</p>
+          <p className='text-red-600 mt-2'>Sign in to continue</p>
         </div>
 
         {/* Login Form */}
@@ -71,7 +71,7 @@ function LoginPage() {
 
           {/* Email Input */}
           <div className='form__field'>
-            <label htmlFor='email' className='form__label block text-sm font-medium text-gray-300 mb-2'>
+            <label htmlFor='email' className='form__label block text-sm font-medium text-red-600 mb-2'>
               Email Address
             </label>
             <input
@@ -87,7 +87,7 @@ function LoginPage() {
 
           {/* Password Input */}
           <div className='form__field'>
-            <label htmlFor='password' className='form__label block text-sm font-medium text-gray-300 mb-2'>
+            <label htmlFor='password' className='form__label block text-sm font-medium text-red-600 mb-2'>
               Password
             </label>
             <input
@@ -111,11 +111,11 @@ function LoginPage() {
                 onChange={(e) => setRememberMe(e.target.checked)}
                 className='w-4 h-4 bg-[#242424] border-gray-700 rounded text-[#3B82F6] focus:ring-2 focus:ring-[#3B82F6] focus:ring-offset-0 cursor-pointer'
               />
-              <label htmlFor='remember-me' className='ml-2 text-sm text-gray-400 cursor-pointer'>
+              <label htmlFor='remember-me' className='ml-2 text-sm text-red-600 cursor-pointer'>
                 Remember me
               </label>
             </div>
-            <a href='#' className='form__link text-sm text-[#3B82F6] hover:text-[#60A5FA] transition-colors'>
+            <a href='#' className='form__link text-sm text-red-600 hover:text-red-700 transition-colors'>
               Forgot password?
             </a>
           </div>
@@ -142,9 +142,9 @@ function LoginPage() {
 
         {/* Footer */}
         <div className='login__footer mt-6 text-center'>
-          <p className='text-gray-400 text-sm'>
+          <p className='text-red-600 text-sm'>
             Don't have an account?{' '}
-            <a href='#' className='text-[#3B82F6] hover:text-[#60A5FA] font-medium transition-colors'>
+            <a href='#' className='text-red-600 hover:text-red-700 font-medium transition-colors'>
               Sign up
             </a>
           </p>
