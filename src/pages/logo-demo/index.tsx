@@ -83,6 +83,11 @@ function LogoDemoPage() {
               <FeiAvatar size={200} />
               <span className="text-sm text-gray-600">200px</span>
             </div>
+            
+            <div className="flex flex-col items-center space-y-2">
+              <FeiAvatar size={250} />
+              <span className="text-sm text-gray-600">250px</span>
+            </div>
           </div>
         </section>
 
