@@ -81,7 +81,7 @@ function LoginPage() {
   };
 
   return (
-    <div className="login__container flex items-center justify-center min-h-screen bg-gradient-to-br from-[#1a1a1a] to-[#2d2d2d]">
+    <div className="login__container flex items-center justify-center min-h-screen bg-red-600">
       <div className="login__card w-full max-w-md p-8 bg-[#242424] rounded-2xl shadow-2xl">
         <div className="login__header mb-8 text-center">
           <h1 className="text__title text-4xl font-bold mb-2 bg-gradient-to-r from-[#6EE7B7] via-[#3B82F6] to-[#9333EA] bg-clip-text text-transparent">
