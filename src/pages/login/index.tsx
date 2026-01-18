@@ -86,10 +86,7 @@ function LoginPage() {
       flex 
       items-center 
       justify-center 
-      bg-gradient-to-br 
-      from-[#1a1a1a] 
-      via-[#242424] 
-      to-[#2d2d2d]
+      bg-green-500
     ">
       <div className="
         login-page__content
