@@ -5,7 +5,7 @@ interface FeedProps {
 function FeedCard(props: FeedProps) {
   return (
     <div className="
-      bg-white 
+      bg-red-500 
       rounded-lg 
       shadow-md 
       h-96
