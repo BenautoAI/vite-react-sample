@@ -9,6 +9,8 @@ function FeedCard(props: FeedProps) {
       rounded-lg 
       shadow-md 
       h-96
+      border-2
+      border-red-500
       ">
 
       <div className="p-4">
