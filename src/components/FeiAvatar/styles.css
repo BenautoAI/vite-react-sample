@@ -1,0 +1,71 @@
+.fei-avatar__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f5e6d3 0%, #e8d7c0 100%);
+  border-radius: 12px;
+  position: relative;
+}
+
+.fei-avatar__svg {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+}
+
+/* Hat animation */
+.fei-avatar__wizard-hat {
+  animation: float 3s ease-in-out infinite;
+  transform-origin: center center;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Screen glow effect */
+.fei-avatar__screen-body {
+  filter: drop-shadow(0 0 10px rgba(158, 255, 0, 0.3));
+}
+
+/* Arms wave animation */
+.fei-avatar__arms {
+  animation: wave 2s ease-in-out infinite;
+  transform-origin: center center;
+}
+
+@keyframes wave {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-2deg);
+  }
+  75% {
+    transform: rotate(2deg);
+  }
+}
+
+/* Responsive sizing */
+@media (max-width: 768px) {
+  .fei-avatar__container {
+    padding: 1rem;
+  }
+  
+  .fei-avatar__svg {
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .fei-avatar__svg {
+    max-width: 250px;
+  }
+}
