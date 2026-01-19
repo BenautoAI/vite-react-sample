@@ -1,3 +1,5 @@
+import FeiAvatar from '../FeiAvatar';
+
 interface AvatarProps {
   nickname: string,
   realname: string
@@ -13,7 +15,13 @@ function Avatar(props: AvatarProps) {
       w-full
       '>
 
-      <div className='avatar__photo mr-20'>
+      <div className='avatar__photo mr-20 flex flex-col items-center gap-4'>
+        {/* Fei Wizard Avatar */}
+        <div className='avatar__fei-wizard'>
+          <FeiAvatar width={120} height={120} />
+        </div>
+        
+        {/* Original Profile Photo */}
         <img
           className='
           rounded-full
