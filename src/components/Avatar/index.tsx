@@ -40,7 +40,7 @@ function Avatar(props: AvatarProps) {
         </div>
 
         <div className='text__follow'>
-          <button className='w-80 mt-5'>
+          <button className='w-80 mt-5 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded transition-colors'>
             Follow
           </button>
         </div>
