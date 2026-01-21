@@ -51,7 +51,7 @@ function Avatar(props: AvatarProps) {
           onClick={() => setIsModalOpen(true)}
         >
           <img
-            className="rounded-full hover:scale-x-110 hover:scale-y-110 transition-transform duration-300 bg-gradient-to-r p-[6px] from-[#6EE7B7] via-[#3B82F6] to-[#9333EA]"
+            className="rounded-full hover:scale-x-110 hover:scale-y-110 transition-transform duration-300 bg-gradient-to-r p-[6px] from-[#6EE7B7] via-[#3B82F6] to-[#9333EA] outline outline-4 outline-red-500"
             src={avatarSrc}
             alt="User avatar"
           />
