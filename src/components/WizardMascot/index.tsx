@@ -40,7 +40,7 @@ function WizardMascot({ size = 400, className = '' }: WizardMascotProps) {
         <rect width="400" height="400" fill="url(#paperTexture)" />
 
         {/* Outer circle border */}
-        <circle cx="200" cy="200" r="170" fill="none" stroke="#6B4A4A" strokeWidth="3" />
+        <circle cx="200" cy="200" r="170" fill="none" stroke="red" strokeWidth="5" />
 
         {/* Inner rectangle frame */}
         <rect x="50" y="150" width="300" height="200" fill="none" stroke="#6B4A4A" strokeWidth="2" />
