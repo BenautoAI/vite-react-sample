@@ -46,6 +46,58 @@ function FeiWizardLogo({ size = 200, className = '' }: FeiWizardLogoProps) {
 
         {/* Wizard Hat */}
         <g transform="translate(128, 20)">
+          {/* Top Hat on Wizard Hat */}
+          <g transform="translate(0, -15)">
+            {/* Top Hat Brim */}
+            <ellipse 
+              cx="0" 
+              cy="0" 
+              rx="30" 
+              ry="6" 
+              fill="#1a1a1a"
+              stroke="#000"
+              strokeWidth="1.5"
+            />
+            {/* Top Hat Cylinder */}
+            <rect 
+              x="-20" 
+              y="-25" 
+              width="40" 
+              height="25" 
+              fill="#2d2d2d"
+              stroke="#000"
+              strokeWidth="1.5"
+            />
+            {/* Top Hat Top */}
+            <ellipse 
+              cx="0" 
+              cy="-25" 
+              rx="20" 
+              ry="5" 
+              fill="#1a1a1a"
+              stroke="#000"
+              strokeWidth="1.5"
+            />
+            {/* Hat Band */}
+            <rect 
+              x="-20" 
+              y="-8" 
+              width="40" 
+              height="6" 
+              fill="#8B0000"
+              stroke="#5a0000"
+              strokeWidth="1"
+            />
+            {/* Shine effect */}
+            <ellipse 
+              cx="-8" 
+              cy="-18" 
+              rx="6" 
+              ry="4" 
+              fill="rgba(255, 255, 255, 0.15)"
+            />
+          </g>
+          
           {/* Hat Cone */}
           <path 
             d="M 0,-10 L -40,60 L 40,60 Z" 
