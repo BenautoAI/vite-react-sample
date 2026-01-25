@@ -40,6 +40,9 @@ function Avatar(props: AvatarProps) {
           transition-transform
           duration-300
           ease-in-out
+          outline
+          outline-4
+          outline-red-500
         `}>
           <img
             className="rounded-full w-full h-full object-cover"
