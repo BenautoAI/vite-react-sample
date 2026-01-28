@@ -49,6 +49,8 @@ function Avatar(props: AvatarProps) {
             object-cover
             border-4
             border-red-500
+            ring-4
+            ring-green-500
             '
             src={avatarSrc}
             alt={`${props.nickname}'s avatar`}
