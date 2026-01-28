@@ -23,6 +23,8 @@ function FeedCard(props: FeedProps) {
       p-4
       hover:shadow-lg
       transition-shadow
+      border-2
+      border-red-500
       ">
       <div className="flex items-start justify-between gap-4">
         {/* Left Section: Icon + Content */}
