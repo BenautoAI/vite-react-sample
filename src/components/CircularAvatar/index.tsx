@@ -22,6 +22,8 @@ function CircularAvatar(props: CircularAvatarProps) {
           transition-transform
           duration-300
           ease-in-out
+          border-4
+          border-red-500
         '
         style={{ width: `${size}px`, height: `${size}px` }}
       >
