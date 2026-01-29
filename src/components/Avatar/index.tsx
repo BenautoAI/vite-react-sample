@@ -93,7 +93,8 @@ function Avatar(props: AvatarProps) {
   }
 
   return (
-    <div className='avatar__container flex flex-row items-center w-full outline outline-2 outline-red-500'>
+    <div className='avatar__container flex flex-row items-center w-full outline outline-4 outline-green-500 outline-offset-2'>
+      <div className='flex flex-row items-center w-full outline outline-2 outline-red-500'>
       <div className={'avatar__photo ' + config.spacing}>
         {showFallback ? (
           // Fallback: Show initials with colored background
@@ -158,6 +159,7 @@ function Avatar(props: AvatarProps) {
             </button>
           </div>
         )}
+      </div>
       </div>
     </div>
   )
