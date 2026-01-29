@@ -1,52 +1,45 @@
+import defaultPhoto from '../../assets/photo.png';
+
 interface AvatarProps {
-  nickname: string,
-  realname: string
+  nickname: string;
+  realname: string;
+  imageUrl?: string;
+  onFollow?: () => void;
 }
 
 function Avatar(props: AvatarProps) {
-  return (
-    <div className='
-      avatar__container 
-      flex 
-      flex-row
-      items-center
-      w-full
-      '>
+  const { nickname, realname, imageUrl, onFollow } = props;
 
-      <div className='avatar__photo mr-20'>
-        <img
-          className='
-          rounded-full
-          hover:scale-x-110
-          hover:scale-y-110
-          animation-delay: 999s;
-          hover:animate-
-          bg-gradient-to-r 
-          p-[6px] 
-          from-[#6EE7B7] via-[#3B82F6] to-[#9333EA]"
-          '
-          src="./src/assets/photo.png"
-        />
+  return (
+    <div className="avatar__container flex flex-row items-center w-full">
+      <div className="avatar__photo mr-6">
+        <div className="bg-gradient-to-r from-[#6EE7B7] via-[#3B82F6] to-[#9333EA] p-[3px] rounded-full">
+          <img
+            className="rounded-full w-16 h-16 object-cover transition-transform duration-300 hover:scale-110"
+            src={imageUrl || defaultPhoto}
+            alt={`${nickname}'s profile`}
+          />
+        </div>
       </div>
 
-      <div className='avatar__texts text-center justify-between'>
-
-        <div className='text__title'>
-          <h1>{props.nickname}</h1>
+      <div className="avatar__texts flex flex-col">
+        <div className="text__title">
+          <h1 className="text-lg font-semibold">{nickname}</h1>
         </div>
 
-        <div className='text__name mt-3'>
-          <h2>{props.realname}</h2>
+        <div className="text__name mt-1">
+          <h2 className="text-sm text-gray-600">{realname}</h2>
         </div>
 
-        <div className='text__follow'>
-          <button className='w-80 mt-5'>
+        <div className="text__follow mt-3">
+          <button
+            className="px-6 py-2 bg-[#FE2C55] text-white rounded-md font-medium hover:bg-[#E02446] transition-colors duration-200"
+            onClick={onFollow}
+          >
             Follow
           </button>
         </div>
-
       </div>
-
     </div>
   );
 }
