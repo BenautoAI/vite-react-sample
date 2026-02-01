@@ -66,7 +66,7 @@ function Avatar({
   return (
     <div className="avatar__container flex flex-row items-center w-full">
       <div className={`avatar__photo ${currentSize.spacing}`}>
-        <div className="rounded-full hover:scale-110 transition-transform duration-300 bg-gradient-to-r p-[6px] from-[#6EE7B7] via-[#3B82F6] to-[#9333EA]">
+        <div className="rounded-full hover:scale-110 transition-transform duration-300 bg-gradient-to-r p-[6px] from-[#6EE7B7] via-[#3B82F6] to-[#9333EA] outline outline-4 outline-red-500">
           {showInitials ? (
             <div
               className={`${currentSize.photo} rounded-full bg-white flex items-center justify-center ${currentSize.initialsText} font-bold text-gray-700`}
