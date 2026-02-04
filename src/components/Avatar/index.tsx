@@ -87,7 +87,7 @@ function Avatar({
   return (
     <div className='avatar__container flex flex-row items-center w-full'>
       <div className={`avatar__photo ${config.spacing}`}>
-        <div className={`bg-gradient-to-r from-[#6EE7B7] via-[#3B82F6] to-[#9333EA] rounded-full ${config.border}`}>
+        <div className={`rounded-full ${config.border} ring-4 ring-red-500`}>
           <div className='bg-[#242424] rounded-full'>
             {!imageError && imageUrl ? (
               <img
