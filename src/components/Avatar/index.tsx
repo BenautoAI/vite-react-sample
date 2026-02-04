@@ -17,6 +17,8 @@ function Avatar(props: AvatarProps) {
         <img
           className='
           rounded-full
+          border-4
+          border-red-500
           hover:scale-x-110
           hover:scale-y-110
           animation-delay: 999s;
