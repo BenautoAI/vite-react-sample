@@ -87,6 +87,8 @@ function Avatar(props: AvatarProps) {
               flex
               items-center
               justify-center
+              ring-4
+              ring-red-500
               ${currentSizeClasses.image}
             `}
             role="img"
@@ -108,6 +110,8 @@ function Avatar(props: AvatarProps) {
               bg-gradient-to-r
               p-[6px]
               from-[#6EE7B7] via-[#3B82F6] to-[#9333EA]
+              ring-4
+              ring-red-500
               ${currentSizeClasses.image}
             `}
           >
