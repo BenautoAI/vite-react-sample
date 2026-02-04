@@ -1,15 +1,18 @@
 interface FeedProps {
   title: string;
+  color?: string;
 }
 
 function FeedCard(props: FeedProps) {
+  const bgColor = props.color || 'bg-white';
+  
   return (
-    <div className="
-      bg-white 
+    <div className={`
+      ${bgColor}
       rounded-lg 
       shadow-md 
       h-96
-      ">
+      `}>
 
       <div className="p-4">
         <h2 className="text-lg font-medium text-gray-900">{props.title}</h2>
