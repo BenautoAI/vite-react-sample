@@ -57,7 +57,7 @@ function Avatar({ src, name, size = 'medium', className = '' }: AvatarProps) {
         relative
         ${containerSize}
         rounded-full
-        bg-gradient-to-r from-[#6EE7B7] via-[#3B82F6] to-[#9333EA]
+        bg-red-500
         p-[6px]
         hover:scale-110
         transition-transform duration-200 ease-in-out
