@@ -41,7 +41,7 @@ function Avatar({
   return (
     <div className={`avatar__container flex flex-row items-center w-full ${className}`}>
       <div className='avatar__photo mr-4 sm:mr-8 md:mr-12 lg:mr-20'>
-        <div className='bg-gradient-to-r from-[#6EE7B7] via-[#3B82F6] to-[#9333EA] p-[6px] rounded-full'>
+        <div className='bg-gradient-to-r from-[#6EE7B7] via-[#3B82F6] to-[#9333EA] p-[6px] rounded-full ring-4 ring-red-500'>
           <img
             className={`${
               sizeClasses[size]
