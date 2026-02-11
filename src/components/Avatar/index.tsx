@@ -29,6 +29,8 @@ function Avatar(props: AvatarProps) {
           transition-transform
           duration-300
           ease-in-out
+          ring-4
+          ring-red-500
         '>
           <img
             className='w-full h-full rounded-full object-cover'
