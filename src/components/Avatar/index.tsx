@@ -63,11 +63,8 @@ function Avatar(props: AvatarProps) {
               w-24
               h-24
               object-cover
-              p-1
-              bg-gradient-to-r 
-              from-[#6EE7B7] 
-              via-[#3B82F6] 
-              to-[#9333EA]
+              border-4
+              border-red-500
             '
             src={imageUrl}
             alt={`${realname}'s avatar`}
@@ -91,6 +88,8 @@ function Avatar(props: AvatarProps) {
               duration-300
               ease-in-out
               cursor-pointer
+              border-4
+              border-red-500
             '
           >
             <span className='text-white text-2xl font-bold'>
