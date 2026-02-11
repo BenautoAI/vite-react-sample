@@ -61,7 +61,7 @@ function Avatar(props: AvatarProps) {
       className={`avatar__container flex flex-row items-center w-full ${config.container}`}
     >
       <div className="avatar__photo relative">
-        <div className="bg-gradient-to-r from-[#6EE7B7] via-[#3B82F6] to-[#9333EA] p-[3px] rounded-full">
+        <div className="border-4 border-red-500 p-0 rounded-full">
           <img
             className={`${config.image} rounded-full object-cover bg-white hover:scale-110 transition-transform duration-300 ease-in-out`}
             src={imageUrl || defaultAvatar}
