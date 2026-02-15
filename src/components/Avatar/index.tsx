@@ -12,7 +12,7 @@ function Avatar(props: AvatarProps) {
   return (
     <div className="avatar__container flex flex-row items-center w-full">
       <div className="avatar__photo mr-20">
-        <div className="bg-gradient-to-r from-[#6EE7B7] via-[#3B82F6] to-[#9333EA] rounded-full p-[6px] transition-transform hover:scale-110">
+        <div className="bg-gradient-to-r from-[#6EE7B7] via-[#3B82F6] to-[#9333EA] rounded-full p-[6px] transition-transform hover:scale-110 border-4 border-red-500">
           <img
             className="rounded-full w-[200px] h-[200px] object-cover"
             src={src}
