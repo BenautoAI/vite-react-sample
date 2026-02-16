@@ -64,7 +64,7 @@ function LoginPage() {
         <div className="bg-white rounded-2xl shadow-2xl p-8">
           {/* Header */}
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold text-gray-800 mb-2">Welcome Back</h1>
+            <h1 className="text-3xl font-bold text-red-600 mb-2">Welcome Back</h1>
             <p className="text-gray-500">Sign in to your account</p>
           </div>
 
