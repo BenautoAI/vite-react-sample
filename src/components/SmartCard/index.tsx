@@ -16,7 +16,7 @@ interface SmartCardProps {
  * @param props.avatarUrl - URL or path to the user's profile image
  * @param props.onFollowClick - Optional callback function triggered on follow button click
  */
-function SmartCard(props: SmartCardProps) {
+export function SmartCard(props: SmartCardProps) {
   const handleFollowClick = () => {
     if (props.onFollowClick) {
       props.onFollowClick();
@@ -38,46 +38,48 @@ function SmartCard(props: SmartCardProps) {
       duration-300
     ">
       
-      {/* Avatar with gradient border */}
-      <div className="avatar__photo mb-6">
-        <img
-          className="
-            rounded-full
-            bg-gradient-to-r 
-            p-[6px] 
-            from-cyan-400 
-            via-blue-500 
-            to-purple-600
-            hover:scale-110
-            transition-transform
-            duration-300
-            ease-in-out
-            w-32
-            h-32
-            object-cover
-          "
-          src={props.avatarUrl}
-          alt={`${props.nickname}'s avatar`}
-        />
+      {/* Avatar with gradient border and red outline */}
+      <div className="mb-6">
+        <div className="rounded-full border-4 border-red-500 p-1">
+          <img
+            className="
+              rounded-full
+              bg-gradient-to-r 
+              p-[6px] 
+              from-cyan-400 
+              via-blue-500 
+              to-purple-600
+              hover:scale-110
+              transition-transform
+              duration-300
+              ease-in-out
+              w-32
+              h-32
+              object-cover
+            "
+            src={props.avatarUrl}
+            alt={`${props.nickname}'s avatar`}
+          />
+        </div>
       </div>
 
       {/* User information */}
-      <div className="avatar__texts text-center flex flex-col items-center w-full">
+      <div className="text-center flex flex-col items-center w-full">
         
-        <div className="text__title mb-2">
+        <div className="mb-2">
           <h1 className="text-2xl font-bold text-gray-900">
             {props.nickname}
           </h1>
         </div>
 
-        <div className="text__name mb-6">
+        <div className="mb-6">
           <h2 className="text-base font-normal text-gray-600">
             {props.realname}
           </h2>
         </div>
 
         {/* Follow button */}
-        <div className="text__follow w-full">
+        <div className="w-full">
           <button 
             onClick={handleFollowClick}
             className="
@@ -108,4 +110,4 @@ function SmartCard(props: SmartCardProps) {
   );
 }
 
-export default SmartCard;
+
