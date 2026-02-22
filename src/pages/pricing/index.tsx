@@ -7,7 +7,7 @@ import { PlanCard } from "../../components";
  *
  * @returns Rendered pricing page component
  */
-function PricingPage() {
+export default function PricingPage() {
   const handleGetStarted = () => {
     console.log("Get Started clicked!");
     // Add your navigation or action logic here
@@ -18,7 +18,7 @@ function PricingPage() {
       <div className="mx-auto max-w-7xl">
         {/* Page Header */}
         <div className="mb-12 text-center">
-          <h1 className="text-4xl font-bold text-gray-900">
+          <h1 className="text-4xl font-bold text-gray-900 outline outline-2 outline-red-500">
             Choose Your Plan
           </h1>
           <p className="mt-4 text-lg text-gray-600">
