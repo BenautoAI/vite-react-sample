@@ -17,13 +17,16 @@ function Avatar(props: AvatarProps) {
         <img
           className='
           rounded-full
-          hover:scale-x-110
-          hover:scale-y-110
-          animation-delay: 999s;
-          hover:animate-
+          hover:scale-110
+          transition-transform
           bg-gradient-to-r 
           p-[6px] 
-          from-[#6EE7B7] via-[#3B82F6] to-[#9333EA]"
+          from-[#6EE7B7] via-[#3B82F6] to-[#9333EA]
+          border-2
+          border-red-500
+          outline
+          outline-2
+          outline-red-500
           '
           src="./src/assets/photo.png"
         />
