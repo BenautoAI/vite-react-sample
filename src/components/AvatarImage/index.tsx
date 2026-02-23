@@ -47,6 +47,8 @@ function AvatarImage(props: AvatarImageProps) {
         hover:scale-110
         transition-transform
         duration-300
+        border-4
+        border-red-500
         ${props.className || ''}
       `}
     >

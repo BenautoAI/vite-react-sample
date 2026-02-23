@@ -7,8 +7,10 @@ import AvatarImage from './index';
 
 function AvatarImageRender() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-8 gap-8">
-      <h1 className="text-3xl font-bold text-gray-800 mb-4">AvatarImage Component Demo</h1>
+    <div className="min-h-screen bg-gray-100 p-8">
+      <h1 className="text-3xl font-bold text-center mb-8 text-gray-800">
+        AvatarImage Component Demo
+      </h1>
       
       <div className="flex flex-wrap items-end justify-center gap-8">
         <div className="flex flex-col items-center gap-2">
@@ -17,7 +19,7 @@ function AvatarImageRender() {
             alt="John Doe"
             size="sm"
           />
-          <span className="text-sm text-gray-600">Small (sm)</span>
+          <p className="text-sm text-gray-600">Small (sm)</p>
         </div>
 
         <div className="flex flex-col items-center gap-2">
@@ -26,7 +28,7 @@ function AvatarImageRender() {
             alt="Jane Smith"
             size="md"
           />
-          <span className="text-sm text-gray-600">Medium (md)</span>
+          <p className="text-sm text-gray-600">Medium (md)</p>
         </div>
 
         <div className="flex flex-col items-center gap-2">
@@ -35,7 +37,7 @@ function AvatarImageRender() {
             alt="Alex Johnson"
             size="lg"
           />
-          <span className="text-sm text-gray-600">Large (lg) - default</span>
+          <p className="text-sm text-gray-600">Large (lg) - Default</p>
         </div>
 
         <div className="flex flex-col items-center gap-2">
@@ -44,17 +46,21 @@ function AvatarImageRender() {
             alt="Sarah Williams"
             size="xl"
           />
-          <span className="text-sm text-gray-600">Extra Large (xl)</span>
+          <p className="text-sm text-gray-600">Extra Large (xl)</p>
         </div>
       </div>
 
+      <h2 className="text-2xl font-bold text-center mt-16 mb-8 text-gray-800">
+        Fallback States
+      </h2>
+      
       <div className="flex flex-wrap items-center justify-center gap-8 mt-8">
         <div className="flex flex-col items-center gap-2">
           <AvatarImage
             alt="Michael Brown"
             size="lg"
           />
-          <span className="text-sm text-gray-600">No image (fallback)</span>
+          <p className="text-sm text-gray-600">No Image Source</p>
         </div>
 
         <div className="flex flex-col items-center gap-2">
@@ -63,7 +69,7 @@ function AvatarImageRender() {
             alt="Emily Davis"
             size="lg"
           />
-          <span className="text-sm text-gray-600">Broken image (fallback)</span>
+          <p className="text-sm text-gray-600">Failed to Load</p>
         </div>
       </div>
     </div>
