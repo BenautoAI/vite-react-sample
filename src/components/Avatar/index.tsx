@@ -1,9 +1,18 @@
+import { useState } from 'react';
+import AvatarEditor from '../AvatarEditor';
+
 interface AvatarProps {
   nickname: string,
   realname: string
 }
 
 function Avatar(props: AvatarProps) {
+  const [avatarUrl, setAvatarUrl] = useState('/src/assets/photo.png');
+
+  const handleAvatarChange = (newAvatarUrl: string) => {
+    setAvatarUrl(newAvatarUrl);
+  };
+
   return (
     <div className='
       avatar__container 
@@ -11,25 +20,19 @@ function Avatar(props: AvatarProps) {
       flex-row
       items-center
       w-full
+      gap-8
       '>
 
-      <div className='avatar__photo mr-20'>
-        <img
-          className='
-          rounded-full
-          hover:scale-x-110
-          hover:scale-y-110
-          animation-delay: 999s;
-          hover:animate-
-          bg-gradient-to-r 
-          p-[6px] 
-          from-[#6EE7B7] via-[#3B82F6] to-[#9333EA]"
-          '
-          src="./src/assets/photo.png"
+      <div className='avatar__photo'>
+        <AvatarEditor
+          currentAvatar={avatarUrl}
+          nickname={props.nickname}
+          realname={props.realname}
+          onAvatarChange={handleAvatarChange}
         />
       </div>
 
-      <div className='avatar__texts text-center justify-between'>
+      <div className='avatar__texts'>
 
         <div className='text__title'>
           <h1>{props.nickname}</h1>
@@ -40,7 +43,7 @@ function Avatar(props: AvatarProps) {
         </div>
 
         <div className='text__follow'>
-          <button className='w-80 mt-5'>
+          <button className='mt-5 px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600'>
             Follow
           </button>
         </div>
