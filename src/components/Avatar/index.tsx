@@ -46,7 +46,7 @@ function Avatar(props: AvatarProps) {
             h-full
             object-cover
             border-4
-            border-gray-900
+            border-red-600
           '
           src={imageUrl}
           alt={props.nickname}
