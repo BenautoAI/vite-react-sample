@@ -1,7 +1,8 @@
+import React, { useState } from 'react';
 import CardList from "./index";
 
 export default function CardListPreview() {
-  const sampleCards = [
+  const initialCards = [
     {
       id: 1,
       title: "Foto Casa",
@@ -49,16 +50,36 @@ export default function CardListPreview() {
     }
   ];
 
+  const [reorderedCards, setReorderedCards] = useState(initialCards);
+
+  const handleCardsReorder = (newOrder) => {
+    setReorderedCards(newOrder);
+    console.log('Cards reordered:', newOrder);
+  };
+
   return (
     <div className="p-8 bg-gray-100 min-h-screen">
-      <h1 className="text-3xl font-bold mb-8">CardList Component - 3 Columns</h1>
-      <CardList cards={sampleCards} columns={3} />
+      <h1 className="text-3xl font-bold mb-2">CardList with Drag & Drop</h1>
+      <p className="text-gray-600 mb-8">Drag cards to reorder them - Try it out!</p>
+
+      <h2 className="text-2xl font-bold mb-6">3 Columns (Default)</h2>
+      <CardList 
+        cards={reorderedCards} 
+        columns={3}
+        onCardsReorder={handleCardsReorder}
+      />
       
-      <h2 className="text-2xl font-bold mt-12 mb-6">CardList - 2 Columns</h2>
-      <CardList cards={sampleCards.slice(0, 4)} columns={2} />
+      <h2 className="text-2xl font-bold mt-12 mb-6">2 Columns</h2>
+      <CardList 
+        cards={initialCards.slice(0, 4)} 
+        columns={2}
+      />
       
-      <h2 className="text-2xl font-bold mt-12 mb-6">CardList - 1 Column</h2>
-      <CardList cards={sampleCards.slice(0, 2)} columns={1} />
+      <h2 className="text-2xl font-bold mt-12 mb-6">1 Column (List View)</h2>
+      <CardList 
+        cards={initialCards.slice(0, 2)} 
+        columns={1}
+      />
     </div>
   );
 }

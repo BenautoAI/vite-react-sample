@@ -1,7 +1,8 @@
+import React, { useState } from 'react';
 import CardList from "../../components/CardList";
 
 function CardListPreview() {
-  const sampleCards = [
+  const initialCards = [
     {
       id: 1,
       title: "Foto Casa",
@@ -49,10 +50,19 @@ function CardListPreview() {
     }
   ];
 
+  const [cards, setCards] = useState(initialCards);
+
   return (
     <div className="p-4">
-      <h1 className="text-2xl font-bold mb-6">Card List Preview</h1>
-      <CardList cards={sampleCards} columns={3} />
+      <h1 className="text-2xl font-bold mb-6">Card List Preview with Drag & Drop</h1>
+      <CardList 
+        cards={cards} 
+        columns={3}
+        onCardsReorder={(reorderedCards) => {
+          setCards(reorderedCards);
+          console.log('Cards reordered:', reorderedCards);
+        }}
+      />
     </div>
   );
 }
