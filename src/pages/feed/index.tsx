@@ -1,5 +1,5 @@
 import Avatar from "../../components/Avatar"
-import FeedGrid from "../../components/Grids/Index"
+import DragDropGrid from "../../components/DragDropGrid"
 
 function FeedPage() {
   return (
@@ -9,7 +9,7 @@ function FeedPage() {
           realname="Felipe Aguiar" nickname="@Felipao__DIO🚀" />
       </div>
       <div className="mt-10">
-        <FeedGrid />
+        <DragDropGrid />
       </div>
     </>
   );
