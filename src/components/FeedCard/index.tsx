@@ -1,15 +1,32 @@
 interface FeedProps {
   title: string;
+  isDragging?: boolean;
+  onDragStart?: (e: React.DragEvent<HTMLDivElement>) => void;
+  onDragEnd?: (e: React.DragEvent<HTMLDivElement>) => void;
+  onDragOver?: (e: React.DragEvent<HTMLDivElement>) => void;
+  onDragLeave?: (e: React.DragEvent<HTMLDivElement>) => void;
+  onDrop?: (e: React.DragEvent<HTMLDivElement>) => void;
 }
 
 function FeedCard(props: FeedProps) {
   return (
-    <div className="
+    <div 
+      draggable
+      onDragStart={props.onDragStart}
+      onDragEnd={props.onDragEnd}
+      onDragOver={props.onDragOver}
+      onDragLeave={props.onDragLeave}
+      onDrop={props.onDrop}
+      className={`
       bg-white 
       rounded-lg 
       shadow-md 
       h-96
-      ">
+      cursor-move
+      transition-all
+      duration-200
+      ${props.isDragging ? 'opacity-50 border-2 border-blue-500' : 'border-2 border-transparent'}
+      `}>
 
       <div className="p-4">
         <h2 className="text-lg font-medium text-gray-900">{props.title}</h2>
