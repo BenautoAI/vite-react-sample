@@ -19,13 +19,12 @@ function Avatar(props: AvatarProps) {
           rounded-full
           hover:scale-x-110
           hover:scale-y-110
-          animation-delay: 999s;
-          hover:animate-
           bg-gradient-to-r 
           p-[6px] 
-          from-[#6EE7B7] via-[#3B82F6] to-[#9333EA]"
+          from-[#6EE7B7] via-[#3B82F6] to-[#9333EA]
           '
-          src="./src/assets/photo.png"
+          src="/src/assets/photo.png"
+          alt="Profile avatar"
         />
       </div>
 
