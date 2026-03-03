@@ -1,9 +1,10 @@
+import { useState } from 'react';
 import Avatar from "../../components/Avatar"
 import FeedGrid from "../../components/Grids/Index"
 import CardList, { CardListItem } from "../../components/CardList"
 
 function FeedPage() {
-  const cardItems: CardListItem[] = [
+  const [cardItems, setCardItems] = useState<CardListItem[]>([
     {
       id: '1',
       image: './src/assets/photo.png',
@@ -25,7 +26,11 @@ function FeedPage() {
       description: 'Creative character artwork with artistic elements.',
       borderColor: 'gradient-green'
     },
-  ];
+  ]);
+
+  const handleItemsReorder = (reorderedItems: CardListItem[]) => {
+    setCardItems(reorderedItems);
+  };
 
   return (
     <>
@@ -35,7 +40,7 @@ function FeedPage() {
       </div>
       <div className="mt-10">
         <h2 className="text-2xl font-bold mb-6">Card List Example</h2>
-        <CardList items={cardItems} columns={3} variant="grid" />
+        <CardList items={cardItems} columns={3} variant="grid" onItemsReorder={handleItemsReorder} />
       </div>
       <div className="mt-10">
         <FeedGrid />
