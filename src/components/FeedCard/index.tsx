@@ -4,7 +4,7 @@ interface FeedProps {
 
 function FeedCard(props: FeedProps) {
   return (
-    <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+    <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 cursor-grab active:cursor-grabbing select-none">
       <div className="bg-gradient-to-r from-blue-400 to-purple-500 h-40 w-full"></div>
       <div className="p-4">
         <h2 className="text-lg font-semibold text-gray-900">{props.title}</h2>
