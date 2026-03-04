@@ -1,9 +1,17 @@
 interface ProfileCardProps {
+  id?: string;
   nickname: string;
   realname: string;
   imageUrl: string;
   onFollow?: () => void;
   isFollowing?: boolean;
+  isDragging?: boolean;
+  isDragOver?: boolean;
+  onDragStart?: (e: React.DragEvent<HTMLDivElement>, id: string) => void;
+  onDragOver?: (e: React.DragEvent<HTMLDivElement>, id: string) => void;
+  onDragLeave?: (e: React.DragEvent<HTMLDivElement>) => void;
+  onDrop?: (e: React.DragEvent<HTMLDivElement>, id: string) => void;
+  onDragEnd?: (e: React.DragEvent<HTMLDivElement>) => void;
 }
 
 function ProfileCard(props: ProfileCardProps) {
@@ -13,8 +21,45 @@ function ProfileCard(props: ProfileCardProps) {
     }
   };
 
+  const handleDragStart = (e: React.DragEvent<HTMLDivElement>) => {
+    if (props.id && props.onDragStart) {
+      props.onDragStart(e, props.id);
+    }
+  };
+
+  const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
+    if (props.id && props.onDragOver) {
+      props.onDragOver(e, props.id);
+    }
+  };
+
+  const handleDragLeave = (e: React.DragEvent<HTMLDivElement>) => {
+    if (props.onDragLeave) {
+      props.onDragLeave(e);
+    }
+  };
+
+  const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
+    if (props.id && props.onDrop) {
+      props.onDrop(e, props.id);
+    }
+  };
+
+  const handleDragEnd = (e: React.DragEvent<HTMLDivElement>) => {
+    if (props.onDragEnd) {
+      props.onDragEnd(e);
+    }
+  };
+
   return (
-    <div className='
+    <div 
+      draggable
+      onDragStart={handleDragStart}
+      onDragOver={handleDragOver}
+      onDragLeave={handleDragLeave}
+      onDrop={handleDrop}
+      onDragEnd={handleDragEnd}
+      className={`
       profilecard__container 
       flex 
       flex-col
@@ -26,7 +71,13 @@ function ProfileCard(props: ProfileCardProps) {
       shadow-md
       w-full
       max-w-sm
-      '>
+      transition-all
+      duration-200
+      cursor-move
+      ${props.isDragging ? 'opacity-50' : 'opacity-100'}
+      ${props.isDragOver ? 'border-2 border-blue-400 bg-blue-50' : 'border-2 border-transparent'}
+      `}
+    >
 
       <div className='profilecard__avatar mb-4'>
         <img

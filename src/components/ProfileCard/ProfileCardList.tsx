@@ -12,6 +12,15 @@ interface ProfileCardListProps {
   profiles: ProfileData[];
   columns?: number;
   onFollow?: (profileId: string) => void;
+  dragState?: {
+    draggedId: string | null;
+    dragOverId: string | null;
+  };
+  onDragStart?: (e: React.DragEvent<HTMLDivElement>, id: string) => void;
+  onDragOver?: (e: React.DragEvent<HTMLDivElement>, id: string) => void;
+  onDragLeave?: (e: React.DragEvent<HTMLDivElement>) => void;
+  onDrop?: (e: React.DragEvent<HTMLDivElement>, id: string) => void;
+  onDragEnd?: (e: React.DragEvent<HTMLDivElement>) => void;
 }
 
 function ProfileCardList(props: ProfileCardListProps) {
@@ -34,11 +43,19 @@ function ProfileCardList(props: ProfileCardListProps) {
       {profiles.map((profile) => (
         <ProfileCard
           key={profile.id}
+          id={profile.id}
           nickname={profile.nickname}
           realname={profile.realname}
           imageUrl={profile.imageUrl}
           isFollowing={profile.isFollowing}
           onFollow={() => handleFollowClick(profile.id)}
+          isDragging={props.dragState?.draggedId === profile.id}
+          isDragOver={props.dragState?.dragOverId === profile.id}
+          onDragStart={props.onDragStart}
+          onDragOver={props.onDragOver}
+          onDragLeave={props.onDragLeave}
+          onDrop={props.onDrop}
+          onDragEnd={props.onDragEnd}
         />
       ))}
     </div>

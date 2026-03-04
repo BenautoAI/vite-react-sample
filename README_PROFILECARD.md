@@ -90,14 +90,35 @@ Demo page showcasing both components with sample data for testing and verificati
 
 ---
 
+## 🎯 Drag and Drop Functionality (NEW)
+
+### Overview
+Drag and drop functionality has been added to ProfileCardList, allowing users to reorder profile cards intuitively.
+
+### Features
+- **Draggable Cards**: Each ProfileCard can be dragged by clicking and holding
+- **Visual Feedback**: Dragged cards appear at 50% opacity, drop targets show blue border
+- **Smart Reordering**: Prevents self-drops and validates all operations
+- **State Persistence**: Follow states maintained across reordering
+
+### Implementation
+New custom hook `useDragDrop` manages drag and drop state. Updated ProfileCard and ProfileCardList to handle drag events with visual indicators.
+
+### Browser Support
+Drag and Drop API: Chrome 4+, Firefox 3.6+, Safari 6+, Edge, Opera 12+
+
+---
+
 ## ✅ Remaining Implementation Tasks
 
 - **Integration**: Connect ProfilesPage to main App router (if using routing library)
 - **State Management**: Implement follow/unfollow state persistence (localStorage or API)
 - **Image Optimization**: Add image loading states and fallbacks
 - **Responsive Breakpoints**: Add mobile/tablet breakpoints for grid columns
-- **Accessibility**: Add ARIA labels and keyboard navigation for interactive elements
-- **Testing**: Add unit tests for follow callbacks and state changes
+- **Accessibility**: Add keyboard navigation for drag and drop
+- **Testing**: Add unit tests for drag and drop reordering
+- **Mobile Support**: Implement touch-based drag and drop for mobile devices
+- **Persistence**: Persist reordered list to local storage or backend
 
 ---
 

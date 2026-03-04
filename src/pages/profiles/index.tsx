@@ -1,5 +1,7 @@
+import { useState } from 'react';
 import ProfileCard from '../../components/ProfileCard';
 import ProfileCardList from '../../components/ProfileCard/ProfileCardList';
+import { useDragDrop } from '../../hooks/useDragDrop';
 
 interface ProfileData {
   id: string;
@@ -11,7 +13,7 @@ interface ProfileData {
 
 function ProfilesPage() {
   // Sample profiles data
-  const profiles: ProfileData[] = [
+  const initialProfiles: ProfileData[] = [
     {
       id: '1',
       nickname: '@João_Dev',
@@ -56,8 +58,16 @@ function ProfilesPage() {
     },
   ];
 
+  const [profiles, setProfiles] = useState<ProfileData[]>(initialProfiles);
+  const { dragState, handleDragStart, handleDragOver, handleDragLeave, handleDrop, handleDragEnd } = useDragDrop(profiles, setProfiles);
+
   const handleFollow = (profileId: string) => {
     console.log(`Following profile ${profileId}`);
+    setProfiles((prevProfiles) =>
+      prevProfiles.map((profile) =>
+        profile.id === profileId ? { ...profile, isFollowing: !profile.isFollowing } : profile
+      )
+    );
   };
 
   return (
@@ -81,6 +91,12 @@ function ProfilesPage() {
           profiles={profiles}
           columns={3}
           onFollow={handleFollow}
+          dragState={dragState}
+          onDragStart={handleDragStart}
+          onDragOver={handleDragOver}
+          onDragLeave={handleDragLeave}
+          onDrop={handleDrop}
+          onDragEnd={handleDragEnd}
         />
       </div>
     </div>
