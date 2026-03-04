@@ -9,6 +9,9 @@ function FeedCard(props: FeedProps) {
       rounded-lg 
       shadow-md 
       h-96
+      hover:shadow-lg
+      transition-shadow
+      duration-200
       ">
 
       <div className="p-4">
