@@ -1,3 +1,4 @@
+import { useState } from "react";
 import FeedCard from "../FeedCard";
 
 interface CardData {
@@ -9,6 +10,7 @@ interface CardData {
 
 interface FeedGridProps {
   cards?: CardData[];
+  onCardsReorder?: (reorderedCards: CardData[]) => void;
 }
 
 function FeedGrid(props: FeedGridProps) {
@@ -24,7 +26,53 @@ function FeedGrid(props: FeedGridProps) {
     { id: 9, title: "Foto Casa" },
   ];
 
-  const cardsToDisplay = props.cards || defaultCards;
+  const [cards, setCards] = useState<CardData[]>(props.cards || defaultCards);
+  const [draggedId, setDraggedId] = useState<string | number | null>(null);
+  const [dragOverId, setDragOverId] = useState<string | number | null>(null);
+
+  const handleDragStart = (id: string | number) => {
+    setDraggedId(id);
+  };
+
+  const handleDragEnd = () => {
+    setDraggedId(null);
+    setDragOverId(null);
+  };
+
+  const handleDragOver = (e: React.DragEvent<HTMLDivElement>, id: string | number) => {
+    e.preventDefault();
+    e.dataTransfer.dropEffect = "move";
+    setDragOverId(id);
+  };
+
+  const handleDragLeave = () => {
+    setDragOverId(null);
+  };
+
+  const handleDrop = (e: React.DragEvent<HTMLDivElement>, targetId: string | number) => {
+    e.preventDefault();
+    
+    if (draggedId === null || draggedId === targetId) {
+      setDragOverId(null);
+      return;
+    }
+
+    const draggedIndex = cards.findIndex(card => card.id === draggedId);
+    const targetIndex = cards.findIndex(card => card.id === targetId);
+
+    if (draggedIndex === -1 || targetIndex === -1) {
+      setDragOverId(null);
+      return;
+    }
+
+    const newCards = [...cards];
+    const [draggedCard] = newCards.splice(draggedIndex, 1);
+    newCards.splice(targetIndex, 0, draggedCard);
+
+    setCards(newCards);
+    props.onCardsReorder?.(newCards);
+    setDragOverId(null);
+  };
 
   return (
     <div className="
@@ -32,12 +80,19 @@ function FeedGrid(props: FeedGridProps) {
       grid-cols-3 
       gap-4"
     >
-      {cardsToDisplay.map((card) => (
+      {cards.map((card) => (
         <FeedCard
           key={card.id}
+          id={card.id}
           title={card.title}
           image={card.image}
           description={card.description}
+          draggable={true}
+          onDragStart={() => handleDragStart(card.id)}
+          onDragEnd={handleDragEnd}
+          onDragOver={(e) => handleDragOver(e, card.id)}
+          onDrop={(e) => handleDrop(e, card.id)}
+          isDragOver={dragOverId === card.id}
         />
       ))}
     </div>

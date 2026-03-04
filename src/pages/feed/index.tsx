@@ -66,6 +66,10 @@ function FeedPage() {
     }
   ];
 
+  const handleCardsReorder = (reorderedCards: CardData[]) => {
+    console.log("Cards reordered:", reorderedCards);
+  };
+
   return (
     <>
       <div>
@@ -73,7 +77,7 @@ function FeedPage() {
           realname="Felipe Aguiar" nickname="@Felipao__DIO🚀" />
       </div>
       <div className="mt-10">
-        <FeedGrid cards={sampleCards} />
+        <FeedGrid cards={sampleCards} onCardsReorder={handleCardsReorder} />
       </div>
     </>
   );
