@@ -1,5 +1,5 @@
 import Avatar from "../../components/Avatar"
-import FeedGrid from "../../components/Grids/Index"
+import CardList from "../../components/CardList"
 
 function FeedPage() {
   return (
@@ -9,7 +9,17 @@ function FeedPage() {
           realname="Felipe Aguiar" nickname="@Felipao__DIO🚀" />
       </div>
       <div className="mt-10">
-        <FeedGrid />
+        <CardList cards={[
+          { title: "Foto Casa" },
+          { title: "Foto Casa" },
+          { title: "Foto Casa" },
+          { title: "Foto Casa" },
+          { title: "Foto Casa" },
+          { title: "Foto Casa" },
+          { title: "Foto Casa" },
+          { title: "Foto Casa" },
+          { title: "Foto Casa" },
+        ]} />
       </div>
     </>
   );
