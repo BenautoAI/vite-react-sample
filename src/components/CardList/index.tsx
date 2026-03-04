@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 interface CardData {
   id: string;
   image: string;
@@ -8,9 +10,51 @@ interface CardData {
 interface CardListProps {
   cards: CardData[];
   onCardClick?: (cardId: string) => void;
+  onCardsChange?: (cards: CardData[]) => void;
 }
 
 function CardList(props: CardListProps) {
+  const [cardList, setCardList] = useState<CardData[]>(props.cards);
+  const [draggedIndex, setDraggedIndex] = useState<number | null>(null);
+  const [dragOverIndex, setDragOverIndex] = useState<number | null>(null);
+
+  const handleDragStart = (index: number) => {
+    setDraggedIndex(index);
+  };
+
+  const handleDragOver = (e: React.DragEvent, index: number) => {
+    e.preventDefault();
+    setDragOverIndex(index);
+  };
+
+  const handleDragLeave = () => {
+    setDragOverIndex(null);
+  };
+
+  const handleDrop = (e: React.DragEvent, dropIndex: number) => {
+    e.preventDefault();
+    if (draggedIndex === null || draggedIndex === dropIndex) {
+      setDraggedIndex(null);
+      setDragOverIndex(null);
+      return;
+    }
+
+    const newCards = [...cardList];
+    const draggedCard = newCards[draggedIndex];
+    newCards.splice(draggedIndex, 1);
+    newCards.splice(dropIndex, 0, draggedCard);
+
+    setCardList(newCards);
+    props.onCardsChange?.(newCards);
+    setDraggedIndex(null);
+    setDragOverIndex(null);
+  };
+
+  const handleDragEnd = () => {
+    setDraggedIndex(null);
+    setDragOverIndex(null);
+  };
+
   return (
     <div className='
       cardlist__container
@@ -19,10 +63,16 @@ function CardList(props: CardListProps) {
       gap-4
       w-full
     '>
-      {props.cards.map((card) => (
+      {cardList.map((card, index) => (
         <div
           key={card.id}
-          className='
+          draggable
+          onDragStart={() => handleDragStart(index)}
+          onDragOver={(e) => handleDragOver(e, index)}
+          onDragLeave={handleDragLeave}
+          onDrop={(e) => handleDrop(e, index)}
+          onDragEnd={handleDragEnd}
+          className={`
             cardlist__item
             flex
             flex-row
@@ -31,11 +81,14 @@ function CardList(props: CardListProps) {
             rounded-lg
             shadow-md
             p-4
-            cursor-pointer
+            cursor-grab
+            active:cursor-grabbing
             hover:shadow-lg
-            transition-shadow
-            duration-300
-          '
+            transition-all
+            duration-200
+            ${draggedIndex === index ? 'opacity-50' : ''}
+            ${dragOverIndex === index ? 'ring-2 ring-blue-500 ring-offset-2' : ''}
+          `}
           onClick={() => props.onCardClick?.(card.id)}
         >
           <div className='

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import CardList from '../../components/CardList';
 
 interface CardData {
@@ -8,7 +9,7 @@ interface CardData {
 }
 
 function CardListPage() {
-  const sampleCards: CardData[] = [
+  const initialCards: CardData[] = [
     {
       id: '1',
       image: './src/assets/photo.png',
@@ -35,17 +36,26 @@ function CardListPage() {
     },
   ];
 
+  const [cards, setCards] = useState<CardData[]>(initialCards);
+
   const handleCardClick = (cardId: string) => {
     console.log(`Card clicked: ${cardId}`);
+  };
+
+  const handleCardsChange = (reorderedCards: CardData[]) => {
+    setCards(reorderedCards);
+    console.log('Cards reordered:', reorderedCards);
   };
 
   return (
     <div className='p-8 bg-gray-50 min-h-screen'>
       <div className='max-w-2xl mx-auto'>
         <h1 className='text-3xl font-bold text-gray-900 mb-8'>Card List Component</h1>
+        <p className='text-gray-600 mb-4'>Drag and drop cards to reorder them</p>
         <CardList
-          cards={sampleCards}
+          cards={cards}
           onCardClick={handleCardClick}
+          onCardsChange={handleCardsChange}
         />
       </div>
     </div>
