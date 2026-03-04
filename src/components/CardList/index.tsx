@@ -1,3 +1,4 @@
+import { useState } from "react";
 import CardItem from "../CardItem";
 
 interface CardListItem {
@@ -24,7 +25,44 @@ const mockData: CardListItem[] = [
 ];
 
 function CardList(props: CardListProps) {
-  const items = props.items || mockData;
+  const initialItems = props.items || mockData;
+  const [items, setItems] = useState<CardListItem[]>(initialItems);
+  const [draggedItemId, setDraggedItemId] = useState<string | null>(null);
+  const [dragOverItemId, setDragOverItemId] = useState<string | null>(null);
+
+  const handleDragStart = (id: string) => {
+    setDraggedItemId(id);
+  };
+
+  const handleDragEnd = () => {
+    setDraggedItemId(null);
+    setDragOverItemId(null);
+  };
+
+  const handleDragOver = (id: string) => {
+    setDragOverItemId(id);
+  };
+
+  const handleDragLeave = () => {
+    setDragOverItemId(null);
+  };
+
+  const handleDrop = (targetId: string) => {
+    if (!draggedItemId || draggedItemId === targetId) {
+      handleDragEnd();
+      return;
+    }
+
+    const draggedIndex = items.findIndex((item) => item.id === draggedItemId);
+    const targetIndex = items.findIndex((item) => item.id === targetId);
+
+    const newItems = [...items];
+    const [draggedItem] = newItems.splice(draggedIndex, 1);
+    newItems.splice(targetIndex, 0, draggedItem);
+
+    setItems(newItems);
+    handleDragEnd();
+  };
 
   return (
     <div className="
@@ -36,8 +74,16 @@ function CardList(props: CardListProps) {
       {items.map((item) => (
         <CardItem 
           key={item.id}
+          id={item.id}
           image={item.image}
           title={item.title}
+          isDragging={draggedItemId === item.id}
+          isDragOver={dragOverItemId === item.id}
+          onDragStart={() => handleDragStart(item.id)}
+          onDragEnd={handleDragEnd}
+          onDragOver={() => handleDragOver(item.id)}
+          onDragLeave={handleDragLeave}
+          onDrop={() => handleDrop(item.id)}
         />
       ))}
     </div>
