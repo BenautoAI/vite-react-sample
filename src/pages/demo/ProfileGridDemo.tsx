@@ -1,7 +1,15 @@
-import ProfileGrid from "../../components/ProfileGrid"
+import { useState } from "react"
+import DraggableProfileGrid from "../../components/DraggableProfileGrid"
+
+interface Profile {
+  id: string | number,
+  nickname: string,
+  realname: string,
+  photoUrl?: string
+}
 
 function ProfileGridDemo() {
-  const sampleProfiles = [
+  const [profiles, setProfiles] = useState<Profile[]>([
     {
       id: 1,
       nickname: "@alice",
@@ -38,16 +46,26 @@ function ProfileGridDemo() {
       realname: "Fiona Wilson",
       photoUrl: "./src/assets/photo.png"
     }
-  ];
+  ]);
 
   const handleFollowClick = (profileId: string | number) => {
     console.log(`Followed profile: ${profileId}`);
   };
 
+  const handleReorder = (reorderedProfiles: Profile[]) => {
+    setProfiles(reorderedProfiles);
+    console.log("Profiles reordered:", reorderedProfiles.map(p => p.nickname));
+  };
+
   return (
     <div className="p-8">
-      <h1 className="text-3xl font-bold mb-8">Profile Grid</h1>
-      <ProfileGrid profiles={sampleProfiles} onFollowClick={handleFollowClick} />
+      <h1 className="text-3xl font-bold mb-8">Draggable Profile Grid</h1>
+      <p className="text-gray-600 mb-4">Drag and drop cards to reorder them</p>
+      <DraggableProfileGrid 
+        profiles={profiles} 
+        onFollowClick={handleFollowClick}
+        onReorder={handleReorder}
+      />
     </div>
   );
 }
