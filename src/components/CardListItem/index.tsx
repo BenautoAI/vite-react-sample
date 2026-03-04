@@ -6,9 +6,19 @@ interface CardData {
   followUrl?: string;
 }
 
-function CardListItem(props: CardData) {
+interface CardListItemProps extends CardData {
+  onDragStart?: (e: React.DragEvent<HTMLDivElement>, id: string | number) => void;
+  onDragEnd?: (e: React.DragEvent<HTMLDivElement>) => void;
+  onDragOver?: (e: React.DragEvent<HTMLDivElement>) => void;
+  onDragLeave?: (e: React.DragEvent<HTMLDivElement>) => void;
+  onDrop?: (e: React.DragEvent<HTMLDivElement>, id: string | number) => void;
+  isDraggedOver?: boolean;
+}
+
+function CardListItem(props: CardListItemProps) {
   return (
-    <div className="
+    <div
+      className={`
       card__container
       flex
       flex-col
@@ -22,7 +32,22 @@ function CardListItem(props: CardData) {
       hover:scale-105
       transition-all
       duration-300
-      ">
+      cursor-move
+      ${props.isDraggedOver ? 'opacity-50 scale-95' : ''}
+      `}
+      draggable
+      onDragStart={(e) => props.onDragStart?.(e, props.id)}
+      onDragEnd={(e) => props.onDragEnd?.(e)}
+      onDragOver={(e) => {
+        e.preventDefault();
+        props.onDragOver?.(e);
+      }}
+      onDragLeave={(e) => props.onDragLeave?.(e)}
+      onDrop={(e) => {
+        e.preventDefault();
+        props.onDrop?.(e, props.id);
+      }}
+    >
 
       <div className="card__image mb-6">
         <div className="
@@ -39,6 +64,7 @@ function CardListItem(props: CardData) {
             h-32
             rounded-full
             object-cover
+            pointer-events-none
             "
             src={props.image}
             alt={props.nickname}

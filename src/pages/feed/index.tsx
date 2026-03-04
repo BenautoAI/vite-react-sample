@@ -1,9 +1,18 @@
+import { useState } from 'react';
 import Avatar from "../../components/Avatar"
 import FeedGrid from "../../components/Grids/Index"
 import CardList from "../../components/CardList"
 
+interface CardData {
+  id: string | number;
+  image: string;
+  nickname: string;
+  realname: string;
+  followUrl?: string;
+}
+
 function FeedPage() {
-  const cardItems = [
+  const initialCardItems: CardData[] = [
     {
       id: 1,
       image: "./src/assets/photo.png",
@@ -48,6 +57,12 @@ function FeedPage() {
     }
   ];
 
+  const [cardItems, setCardItems] = useState<CardData[]>(initialCardItems);
+
+  const handleItemsReorder = (reorderedItems: CardData[]) => {
+    setCardItems(reorderedItems);
+  };
+
   return (
     <>
       <div>
@@ -59,7 +74,8 @@ function FeedPage() {
       </div>
       <div className="mt-16">
         <h2 className="text-2xl font-bold text-gray-900 mb-8">Team Members</h2>
-        <CardList items={cardItems} />
+        <p className="text-sm text-gray-500 mb-4">💡 Drag and drop cards to reorder them</p>
+        <CardList items={cardItems} onItemsReorder={handleItemsReorder} />
       </div>
     </>
   );
