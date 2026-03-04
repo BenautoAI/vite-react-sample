@@ -1,7 +1,8 @@
-import CardList from "../../components/CardList";
+import { useState } from 'react';
+import CardList, { CardData } from "../../components/CardList";
 
 function CardListDemoPage() {
-  const sampleData = [
+  const initialData: CardData[] = [
     {
       id: 1,
       image: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=400&h=300&fit=crop",
@@ -34,10 +35,17 @@ function CardListDemoPage() {
     }
   ];
 
+  const [cardData, setCardData] = useState<CardData[]>(initialData);
+
+  const handleDataChange = (newData: CardData[]) => {
+    setCardData(newData);
+  };
+
   return (
     <div className="p-8">
       <h1 className="text-3xl font-bold mb-8">Card List Demo</h1>
-      <CardList data={sampleData} />
+      <p className="text-gray-600 mb-6">Drag and drop cards to reorder them</p>
+      <CardList data={cardData} onDataChange={handleDataChange} />
     </div>
   );
 }
