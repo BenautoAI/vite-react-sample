@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import FeedCard from "../FeedCard";
 
 interface CardItem {
@@ -9,6 +10,7 @@ interface CardItem {
 
 interface FeedGridProps {
   items?: CardItem[];
+  onItemsChange?: (items: CardItem[]) => void;
 }
 
 const DEFAULT_ITEMS: CardItem[] = [
@@ -69,7 +71,53 @@ const DEFAULT_ITEMS: CardItem[] = [
 ];
 
 function FeedGrid(props: FeedGridProps) {
-  const itemsToDisplay = props.items || DEFAULT_ITEMS;
+  const [items, setItems] = useState<CardItem[]>(props.items || DEFAULT_ITEMS);
+  const [draggedItem, setDraggedItem] = useState<CardItem | null>(null);
+  const [dragOverIndex, setDragOverIndex] = useState<number | null>(null);
+
+  const handleDragStart = (item: CardItem) => {
+    setDraggedItem(item);
+  };
+
+  const handleDragEnd = () => {
+    setDraggedItem(null);
+    setDragOverIndex(null);
+  };
+
+  const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+  };
+
+  const handleDragLeave = () => {
+    setDragOverIndex(null);
+  };
+
+  const handleDrop = (targetItem: CardItem, targetIndex: number) => {
+    if (!draggedItem || draggedItem.id === targetItem.id) {
+      setDraggedItem(null);
+      setDragOverIndex(null);
+      return;
+    }
+
+    const draggedIndex = items.findIndex((item) => item.id === draggedItem.id);
+    const newItems = [...items];
+    
+    // Remove dragged item
+    newItems.splice(draggedIndex, 1);
+    
+    // Insert at new position
+    let insertIndex = targetIndex;
+    if (draggedIndex < targetIndex) {
+      insertIndex = targetIndex - 1;
+    }
+    newItems.splice(insertIndex, 0, draggedItem);
+    
+    setItems(newItems);
+    props.onItemsChange?.(newItems);
+    
+    setDraggedItem(null);
+    setDragOverIndex(null);
+  };
 
   return (
     <div className="
@@ -79,12 +127,22 @@ function FeedGrid(props: FeedGridProps) {
       lg:grid-cols-3
       gap-4"
     >
-      {itemsToDisplay.map((item) => (
+      {items.map((item, index) => (
         <FeedCard
           key={item.id}
           title={item.title}
           description={item.description}
           image={item.image}
+          onDragStart={() => handleDragStart(item)}
+          onDragEnd={handleDragEnd}
+          onDragOver={(e) => {
+            handleDragOver(e);
+            setDragOverIndex(index);
+          }}
+          onDragLeave={handleDragLeave}
+          onDrop={() => handleDrop(item, index)}
+          isDragging={draggedItem?.id === item.id}
+          isDragOver={dragOverIndex === index}
         />
       ))}
     </div>

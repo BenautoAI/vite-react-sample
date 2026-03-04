@@ -2,11 +2,25 @@ interface FeedProps {
   title: string;
   description?: string;
   image?: string;
+  onDragStart?: (e: React.DragEvent<HTMLDivElement>) => void;
+  onDragEnd?: (e: React.DragEvent<HTMLDivElement>) => void;
+  onDragOver?: (e: React.DragEvent<HTMLDivElement>) => void;
+  onDrop?: (e: React.DragEvent<HTMLDivElement>) => void;
+  onDragLeave?: (e: React.DragEvent<HTMLDivElement>) => void;
+  isDragging?: boolean;
+  isDragOver?: boolean;
 }
 
 function FeedCard(props: FeedProps) {
   return (
-    <div className="
+    <div
+      draggable
+      onDragStart={props.onDragStart}
+      onDragEnd={props.onDragEnd}
+      onDragOver={props.onDragOver}
+      onDrop={props.onDrop}
+      onDragLeave={props.onDragLeave}
+      className={`
       bg-white 
       rounded-lg 
       shadow-md 
@@ -14,7 +28,13 @@ function FeedCard(props: FeedProps) {
       overflow-hidden
       flex
       flex-col
-      ">
+      cursor-move
+      transition-all
+      duration-200
+      ${props.isDragging ? 'opacity-50' : 'opacity-100'}
+      ${props.isDragOver ? 'ring-2 ring-blue-400 shadow-lg' : ''}
+      hover:shadow-lg
+      `}>
 
       {props.image && (
         <div className="
