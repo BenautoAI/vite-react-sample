@@ -1,6 +1,8 @@
 interface AvatarProps {
   nickname: string,
-  realname: string
+  realname: string,
+  photoUrl?: string,
+  onFollowClick?: () => void
 }
 
 function Avatar(props: AvatarProps) {
@@ -25,7 +27,7 @@ function Avatar(props: AvatarProps) {
           p-[6px] 
           from-[#6EE7B7] via-[#3B82F6] to-[#9333EA]"
           '
-          src="./src/assets/photo.png"
+          src={props.photoUrl || "./src/assets/photo.png"}
         />
       </div>
 
@@ -40,7 +42,7 @@ function Avatar(props: AvatarProps) {
         </div>
 
         <div className='text__follow'>
-          <button className='w-80 mt-5'>
+          <button className='w-80 mt-5' onClick={props.onFollowClick}>
             Follow
           </button>
         </div>
