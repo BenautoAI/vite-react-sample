@@ -3,12 +3,16 @@ interface CardProps {
   description?: string;
   image?: string;
   onClick?: () => void;
+  draggable?: boolean;
+  onDragStart?: (e: React.DragEvent<HTMLDivElement>) => void;
+  onDragEnd?: (e: React.DragEvent<HTMLDivElement>) => void;
+  isDragging?: boolean;
 }
 
 function Card(props: CardProps) {
   return (
     <div
-      className="
+      className={`
         bg-white 
         rounded-lg 
         shadow-md 
@@ -18,8 +22,12 @@ function Card(props: CardProps) {
         h-96
         overflow-hidden
         cursor-pointer
-      "
+        ${props.isDragging ? 'opacity-50' : ''}
+      `}
       onClick={props.onClick}
+      draggable={props.draggable || false}
+      onDragStart={props.onDragStart}
+      onDragEnd={props.onDragEnd}
     >
       {props.image && (
         <div className="

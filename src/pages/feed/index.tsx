@@ -1,9 +1,10 @@
+import { useState } from 'react';
 import Avatar from "../../components/Avatar"
-import CardList from "../../components/CardList"
+import CardList, { CardItem } from "../../components/CardList"
 
 function FeedPage() {
   // Sample data for card list
-  const sampleCards = [
+  const initialCards = [
     {
       id: '1',
       title: 'Foto Casa',
@@ -42,8 +43,15 @@ function FeedPage() {
     },
   ];
 
-  const handleCardClick = (item: any) => {
+  const [items, setItems] = useState<CardItem[]>(initialCards);
+
+  const handleCardClick = (item: CardItem) => {
     console.log('Card clicked:', item);
+  };
+
+  const handleItemsReorder = (reorderedItems: CardItem[]) => {
+    setItems(reorderedItems);
+    console.log('Items reordered:', reorderedItems.map(item => item.id));
   };
 
   return (
@@ -54,10 +62,12 @@ function FeedPage() {
       </div>
       <div className="mt-10">
         <CardList 
-          items={sampleCards}
+          items={items}
           layout="grid"
           columns={3}
           onCardClick={handleCardClick}
+          onItemsReorder={handleItemsReorder}
+          draggableEnabled={true}
         />
       </div>
     </>
