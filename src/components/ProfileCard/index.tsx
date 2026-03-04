@@ -5,11 +5,20 @@ interface ProfileCardProps {
   image: string;
   actionLabel: string;
   onAction?: (id: string) => void;
+  isDragging?: boolean;
+  isDraggedOver?: boolean;
+  onDragStart?: (id: string) => void;
+  onDragOver?: (id: string) => void;
+  onDragLeave?: () => void;
+  onDrop?: (targetId: string) => void;
+  onDragEnd?: () => void;
 }
 
 function ProfileCard(props: ProfileCardProps) {
   return (
-    <div className="
+    <div
+      draggable
+      className={`
       card__container
       bg-white
       rounded-lg
@@ -20,7 +29,25 @@ function ProfileCard(props: ProfileCardProps) {
       items-center
       text-center
       w-full
-      ">
+      cursor-grab
+      active:cursor-grabbing
+      transition-all
+      duration-200
+      ${props.isDragging ? 'opacity-50 scale-95' : 'opacity-100 scale-100'}
+      ${props.isDraggedOver ? 'ring-2 ring-blue-500 bg-blue-50' : ''}
+      `}
+      onDragStart={() => props.onDragStart?.(props.id)}
+      onDragOver={(e) => {
+        e.preventDefault();
+        props.onDragOver?.(props.id);
+      }}
+      onDragLeave={() => props.onDragLeave?.()}
+      onDrop={(e) => {
+        e.preventDefault();
+        props.onDrop?.(props.id);
+      }}
+      onDragEnd={() => props.onDragEnd?.()}
+    >
 
       <div className="card__avatar mb-4 relative">
         <div className="

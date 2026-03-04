@@ -52,6 +52,10 @@ function FeedPage() {
     console.log(`Action triggered for card: ${id}`);
   };
 
+  const handleCardsReorder = (reorderedCards: typeof profileCards) => {
+    console.log('Cards reordered:', reorderedCards.map(c => c.name));
+  };
+
   return (
     <>
       <div>
@@ -63,7 +67,11 @@ function FeedPage() {
       </div>
       <div className="mt-10">
         <h2 className="text-2xl font-bold text-gray-900 mb-6">Team Members</h2>
-        <CardList cards={profileCards} onAction={handleCardAction} />
+        <CardList
+          cards={profileCards}
+          onAction={handleCardAction}
+          onCardsReorder={handleCardsReorder}
+        />
       </div>
     </>
   );
