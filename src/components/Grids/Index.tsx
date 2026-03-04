@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import FeedCard from "../FeedCard";
 
 interface CardData {
@@ -7,6 +8,7 @@ interface CardData {
 
 interface FeedGridProps {
   cards?: CardData[];
+  onCardsChange?: (cards: CardData[]) => void;
 }
 
 const defaultCards: CardData[] = [
@@ -49,7 +51,43 @@ const defaultCards: CardData[] = [
 ];
 
 function FeedGrid(props: FeedGridProps) {
-  const cardsToRender = props.cards || defaultCards;
+  const [cards, setCards] = useState<CardData[]>(props.cards || defaultCards);
+  const [draggedIndex, setDraggedIndex] = useState<number | null>(null);
+  const [dragOverIndex, setDragOverIndex] = useState<number | null>(null);
+
+  const handleDragStart = (index: number) => {
+    setDraggedIndex(index);
+  };
+
+  const handleDragOver = (index: number) => {
+    setDragOverIndex(index);
+  };
+
+  const handleDrop = (dropIndex: number) => {
+    if (draggedIndex === null || draggedIndex === dropIndex) {
+      setDraggedIndex(null);
+      setDragOverIndex(null);
+      return;
+    }
+
+    const newCards = [...cards];
+    const draggedCard = newCards[draggedIndex];
+    
+    // Remove from old position
+    newCards.splice(draggedIndex, 1);
+    // Insert at new position
+    newCards.splice(dropIndex, 0, draggedCard);
+    
+    setCards(newCards);
+    props.onCardsChange?.(newCards);
+    setDraggedIndex(null);
+    setDragOverIndex(null);
+  };
+
+  const handleDragEnd = () => {
+    setDraggedIndex(null);
+    setDragOverIndex(null);
+  };
 
   return (
     <div className="
@@ -57,8 +95,23 @@ function FeedGrid(props: FeedGridProps) {
       grid-cols-3 
       gap-4"
     >
-      {cardsToRender.map((card, index) => (
-        <FeedCard key={index} title={card.title} description={card.description} />
+      {cards.map((card, index) => (
+        <div
+          key={index}
+          onDragLeave={() => setDragOverIndex(null)}
+          onDragEnd={handleDragEnd}
+        >
+          <FeedCard
+            index={index}
+            title={card.title}
+            description={card.description}
+            onDragStart={handleDragStart}
+            onDragOver={handleDragOver}
+            onDrop={handleDrop}
+            isDragging={draggedIndex === index}
+            isOver={dragOverIndex === index}
+          />
+        </div>
       ))}
     </div>
   );
