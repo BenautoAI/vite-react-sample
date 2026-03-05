@@ -1,3 +1,4 @@
+import { useDragDrop } from '../../hooks/useDragDrop';
 import FeedCard from "../FeedCard";
 
 interface Card {
@@ -7,9 +8,10 @@ interface Card {
 
 interface FeedGridProps {
   cards?: Card[];
+  onCardsReorder?: (cards: Card[]) => void;
 }
 
-function FeedGrid({ cards }: FeedGridProps) {
+function FeedGrid({ cards, onCardsReorder }: FeedGridProps) {
   // Default cards if none provided
   const defaultCards: Card[] = [
     { id: '1', title: 'Foto Casa' },
@@ -24,6 +26,20 @@ function FeedGrid({ cards }: FeedGridProps) {
   ];
 
   const cardList = cards || defaultCards;
+  const {
+    items,
+    draggedItem,
+    draggedOverItem,
+    handleDragStart,
+    handleDragOver,
+    handleDrop,
+    handleDragEnd,
+  } = useDragDrop(cardList);
+
+  // Notify parent when cards are reordered
+  if (onCardsReorder) {
+    onCardsReorder(items);
+  }
 
   return (
     <div className="
@@ -31,8 +47,18 @@ function FeedGrid({ cards }: FeedGridProps) {
       grid-cols-3 
       gap-4"
     >
-      {cardList.map((card) => (
-        <FeedCard key={card.id} title={card.title} />
+      {items.map((card) => (
+        <FeedCard
+          key={card.id}
+          id={card.id}
+          title={card.title}
+          isDragging={draggedItem?.id === card.id}
+          isDraggedOver={draggedOverItem?.id === card.id}
+          onDragStart={() => handleDragStart(card)}
+          onDragOver={() => handleDragOver(card)}
+          onDrop={handleDrop}
+          onDragEnd={handleDragEnd}
+        />
       ))}
     </div>
   );
