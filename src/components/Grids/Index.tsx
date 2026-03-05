@@ -69,10 +69,15 @@ function FeedGrid() {
     console.log('Card clicked:', item.title);
   };
 
+  const handleItemsReorder = (reorderedItems: CardItem[]) => {
+    console.log('Cards reordered:', reorderedItems.map(item => item.title));
+  };
+
   return (
     <CardList
       items={sampleCards}
       onCardClick={handleCardClick}
+      onItemsReorder={handleItemsReorder}
       emptyMessage="No photos available"
     />
   );

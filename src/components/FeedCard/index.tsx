@@ -16,7 +16,8 @@ function FeedCard(props: FeedProps) {
         transition-transform
         hover:shadow-lg
         hover:scale-105
-        cursor-pointer
+        cursor-grab
+        active:cursor-grabbing
       "
       onClick={props.onClick}
     >
