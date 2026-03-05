@@ -1,7 +1,8 @@
-import CardList from "../../components/CardList";
+import { useState } from 'react';
+import CardList, { CardListItem } from "../../components/CardList";
 
 function CardListDemoPage() {
-  const sampleItems = [
+  const initialItems: CardListItem[] = [
     {
       title: "Foto Casa",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
@@ -24,9 +25,11 @@ function CardListDemoPage() {
     }
   ];
 
+  const [items, setItems] = useState<CardListItem[]>(initialItems);
+
   return (
     <div className="mt-10">
-      <CardList items={sampleItems} />
+      <CardList items={items} onItemsChange={setItems} />
     </div>
   );
 }

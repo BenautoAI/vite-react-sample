@@ -1,9 +1,10 @@
+import { useState } from 'react';
 import Avatar from "../../components/Avatar"
 import FeedGrid from "../../components/Grids/Index"
-import CardList from "../../components/CardList"
+import CardList, { CardListItem } from "../../components/CardList"
 
 function FeedPage() {
-  const sampleItems = [
+  const initialItems: CardListItem[] = [
     {
       title: "Foto Casa",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
@@ -26,6 +27,8 @@ function FeedPage() {
     }
   ];
 
+  const [items, setItems] = useState<CardListItem[]>(initialItems);
+
   return (
     <>
       <div>
@@ -38,7 +41,7 @@ function FeedPage() {
       </div>
       <div className="mt-10">
         <h3 className="text-lg font-medium text-gray-900 mb-4">List Layout</h3>
-        <CardList items={sampleItems} />
+        <CardList items={items} onItemsChange={setItems} />
       </div>
     </>
   );
