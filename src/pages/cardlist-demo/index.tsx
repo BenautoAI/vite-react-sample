@@ -1,9 +1,7 @@
 import { useState } from 'react';
-import Avatar from "../../components/Avatar"
-import FeedGrid from "../../components/Grids/Index"
-import CardList, { CardListItem } from "../../components/CardList"
+import CardList, { CardListItem } from "../../components/CardList";
 
-function FeedPage() {
+function CardListDemoPage() {
   const initialItems: CardListItem[] = [
     {
       title: "Foto Casa",
@@ -30,21 +28,10 @@ function FeedPage() {
   const [items, setItems] = useState<CardListItem[]>(initialItems);
 
   return (
-    <>
-      <div>
-        <Avatar
-          realname="Felipe Aguiar" nickname="@Felipao__DIO🚀" />
-      </div>
-      <div className="mt-10">
-        <h3 className="text-lg font-medium text-gray-900 mb-4">Grid Layout</h3>
-        <FeedGrid />
-      </div>
-      <div className="mt-10">
-        <h3 className="text-lg font-medium text-gray-900 mb-4">List Layout</h3>
-        <CardList items={items} onItemsChange={setItems} />
-      </div>
-    </>
+    <div className="mt-10">
+      <CardList items={items} onItemsChange={setItems} />
+    </div>
   );
 }
 
-export default FeedPage;
+export default CardListDemoPage;
