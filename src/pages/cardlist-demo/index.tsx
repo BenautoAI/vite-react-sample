@@ -1,8 +1,6 @@
-import Avatar from "../../components/Avatar"
-import FeedGrid from "../../components/Grids/Index"
-import CardList from "../../components/CardList"
+import CardList from "../../components/CardList";
 
-function FeedPage() {
+function CardListDemoPage() {
   const sampleItems = [
     {
       title: "Foto Casa",
@@ -27,21 +25,10 @@ function FeedPage() {
   ];
 
   return (
-    <>
-      <div>
-        <Avatar
-          realname="Felipe Aguiar" nickname="@Felipao__DIO🚀" />
-      </div>
-      <div className="mt-10">
-        <h3 className="text-lg font-medium text-gray-900 mb-4">Grid Layout</h3>
-        <FeedGrid />
-      </div>
-      <div className="mt-10">
-        <h3 className="text-lg font-medium text-gray-900 mb-4">List Layout</h3>
-        <CardList items={sampleItems} />
-      </div>
-    </>
+    <div className="mt-10">
+      <CardList items={sampleItems} />
+    </div>
   );
 }
 
-export default FeedPage;
+export default CardListDemoPage;
