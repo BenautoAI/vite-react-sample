@@ -6,6 +6,11 @@ interface CardListItem {
 
 interface CardListProps {
   items: CardListItem[];
+  draggedItemId?: string | null;
+  dragOverItemId?: string | null;
+  onDragStart?: (id: string) => void;
+  onDragOver?: (id: string) => void;
+  onDragEnd?: () => void;
 }
 
 function CardList(props: CardListProps) {
@@ -14,7 +19,12 @@ function CardList(props: CardListProps) {
       {props.items.map((item) => (
         <div 
           key={item.id}
-          className="
+          draggable
+          onDragStart={() => props.onDragStart?.(item.id)}
+          onDragOver={() => props.onDragOver?.(item.id)}
+          onDragEnd={props.onDragEnd}
+          onDragLeave={props.onDragEnd}
+          className={`
             flex 
             flex-col 
             items-center 
@@ -26,6 +36,11 @@ function CardList(props: CardListProps) {
             w-full
             max-w-sm
             mx-auto
+            cursor-move
+            transition-all
+            duration-200
+            ${props.draggedItemId === item.id ? 'opacity-50' : ''}
+            ${props.dragOverItemId === item.id && props.draggedItemId !== item.id ? 'ring-2 ring-blue-400' : ''}
           "
         >
           <div className="relative">
