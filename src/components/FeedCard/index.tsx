@@ -1,10 +1,19 @@
 interface FeedProps {
   title: string;
+  id: string;
+  onDragStart?: (e: React.DragEvent<HTMLDivElement>, id: string) => void;
+  onDragOver?: (e: React.DragEvent<HTMLDivElement>) => void;
+  onDrop?: (e: React.DragEvent<HTMLDivElement>, id: string) => void;
 }
 
 function FeedCard(props: FeedProps) {
   return (
-    <div className="
+    <div 
+      draggable
+      onDragStart={(e) => props.onDragStart?.(e, props.id)}
+      onDragOver={(e) => props.onDragOver?.(e)}
+      onDrop={(e) => props.onDrop?.(e, props.id)}
+      className="
       bg-white 
       rounded-lg 
       shadow-md 
@@ -13,7 +22,7 @@ function FeedCard(props: FeedProps) {
       duration-300
       hover:shadow-lg
       hover:scale-105
-      cursor-pointer
+      cursor-move
       ">
 
       <div className="p-4">
