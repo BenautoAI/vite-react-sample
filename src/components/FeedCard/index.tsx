@@ -9,6 +9,11 @@ function FeedCard(props: FeedProps) {
       rounded-lg 
       shadow-md 
       h-96
+      transition-all
+      duration-300
+      hover:shadow-lg
+      hover:scale-105
+      cursor-pointer
       ">
 
       <div className="p-4">
