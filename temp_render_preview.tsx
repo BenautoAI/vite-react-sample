@@ -1,3 +1,3 @@
-import App from './src/App'
+import FeedPage from './src/pages/feed/index'
 
-export default App
+export default FeedPage;
