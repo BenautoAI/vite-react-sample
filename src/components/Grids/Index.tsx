@@ -1,23 +1,25 @@
 import FeedCard from "../FeedCard";
 
-function FeedGrid() {
+interface CardItem {
+  id: string;
+  title: string;
+  description: string;
+}
+
+interface FeedGridProps {
+  cards: CardItem[];
+}
+
+function FeedGrid(props: FeedGridProps) {
   return (
     <div className="
       grid 
       grid-cols-3 
       gap-4"
     >
-      <FeedCard title="Foto Casa" />
-      <FeedCard title="Foto Casa" />
-      <FeedCard title="Foto Casa" />
-
-      <FeedCard title="Foto Casa" />
-      <FeedCard title="Foto Casa" />
-      <FeedCard title="Foto Casa" />
-
-      <FeedCard title="Foto Casa" />
-      <FeedCard title="Foto Casa" />
-      <FeedCard title="Foto Casa" />
+      {props.cards.map((card) => (
+        <FeedCard key={card.id} title={card.title} description={card.description} />
+      ))}
     </div>
 
   );
