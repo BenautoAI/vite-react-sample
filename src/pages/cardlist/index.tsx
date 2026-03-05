@@ -58,14 +58,22 @@ function CardListPage() {
       bg-gray-50 
       min-h-screen
     ">
-      <h1 className="
-        text-3xl 
-        font-bold 
-        text-gray-900 
-        mb-8
-      ">
-        Users
-      </h1>
+      <div className="mb-8">
+        <h1 className="
+          text-3xl 
+          font-bold 
+          text-gray-900 
+          mb-2
+        ">
+          Users
+        </h1>
+        <p className="
+          text-gray-600
+          text-sm
+        ">
+          Drag and drop cards to reorder them
+        </p>
+      </div>
       <AvatarCardList cards={sampleCards} />
     </div>
   );

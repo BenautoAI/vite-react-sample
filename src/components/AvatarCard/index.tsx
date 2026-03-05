@@ -2,11 +2,17 @@ interface AvatarCardProps {
   nickname: string;
   realname: string;
   imageUrl?: string;
+  id?: string;
+  draggable?: boolean;
+  onDragStart?: (e: React.DragEvent<HTMLDivElement>) => void;
 }
 
 function AvatarCard(props: AvatarCardProps) {
   return (
-    <div className="
+    <div 
+      draggable={props.draggable !== false}
+      onDragStart={props.onDragStart}
+      className="
       flex 
       flex-col 
       items-center 
@@ -17,6 +23,10 @@ function AvatarCard(props: AvatarCardProps) {
       p-6 
       h-auto 
       w-full
+      cursor-grab
+      active:cursor-grabbing
+      transition-opacity
+      hover:shadow-lg
     ">
       <div className="
         avatar-card__photo 
