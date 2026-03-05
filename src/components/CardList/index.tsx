@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 interface CardItem {
   id: string;
   nickname: string;
@@ -7,9 +9,58 @@ interface CardItem {
 
 interface CardListProps {
   items: CardItem[];
+  onItemsChange?: (items: CardItem[]) => void;
 }
 
 function CardList(props: CardListProps) {
+  const [items, setItems] = useState<CardItem[]>(props.items);
+  const [draggedItem, setDraggedItem] = useState<CardItem | null>(null);
+  const [draggedOverIndex, setDraggedOverIndex] = useState<number | null>(null);
+
+  const handleDragStart = (item: CardItem) => {
+    setDraggedItem(item);
+  };
+
+  const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+  };
+
+  const handleDragEnter = (index: number) => {
+    setDraggedOverIndex(index);
+  };
+
+  const handleDragLeave = () => {
+    setDraggedOverIndex(null);
+  };
+
+  const handleDrop = (index: number) => {
+    if (draggedItem === null) return;
+
+    const draggedIndex = items.findIndex(item => item.id === draggedItem.id);
+    if (draggedIndex === index) {
+      setDraggedItem(null);
+      setDraggedOverIndex(null);
+      return;
+    }
+
+    const newItems = [...items];
+    newItems.splice(draggedIndex, 1);
+    newItems.splice(index, 0, draggedItem);
+
+    setItems(newItems);
+    setDraggedItem(null);
+    setDraggedOverIndex(null);
+
+    if (props.onItemsChange) {
+      props.onItemsChange(newItems);
+    }
+  };
+
+  const handleDragEnd = () => {
+    setDraggedItem(null);
+    setDraggedOverIndex(null);
+  };
+
   return (
     <div className="
       flex 
@@ -17,10 +68,17 @@ function CardList(props: CardListProps) {
       gap-4 
       w-full
     ">
-      {props.items.map((item) => (
+      {items.map((item, index) => (
         <div 
           key={item.id}
-          className="
+          draggable
+          onDragStart={() => handleDragStart(item)}
+          onDragOver={handleDragOver}
+          onDragEnter={() => handleDragEnter(index)}
+          onDragLeave={handleDragLeave}
+          onDrop={() => handleDrop(index)}
+          onDragEnd={handleDragEnd}
+          className={`
             bg-white 
             rounded-lg 
             shadow-md 
@@ -29,7 +87,12 @@ function CardList(props: CardListProps) {
             flex-row 
             items-center 
             gap-6
-          "
+            cursor-move
+            transition-all
+            duration-200
+            ${draggedItem?.id === item.id ? 'opacity-50' : 'opacity-100'}
+            ${draggedOverIndex === index && draggedItem?.id !== item.id ? 'ring-2 ring-blue-400 ring-inset' : ''}
+          `}
         >
           <div className="
             w-24 
