@@ -8,7 +8,7 @@ function FeedCard(props: FeedProps) {
       bg-white 
       rounded-lg 
       shadow-md 
-      h-96
+      h-auto
       ">
 
       <div className="p-4">
