@@ -9,6 +9,8 @@ interface CardsListProps {
   cards?: Card[];
 }
 
+import { useState } from 'react';
+
 function CardsList(props: CardsListProps) {
   const defaultCards: Card[] = [
     {
@@ -50,6 +52,33 @@ function CardsList(props: CardsListProps) {
   ];
 
   const cardsToDisplay = props.cards || defaultCards;
+  const [cards, setCards] = useState<Card[]>(cardsToDisplay);
+  const [draggedCard, setDraggedCard] = useState<Card | null>(null);
+
+  const handleDragStart = (card: Card) => {
+    setDraggedCard(card);
+  };
+
+  const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+  };
+
+  const handleDrop = (targetCard: Card) => {
+    if (!draggedCard || draggedCard.id === targetCard.id) return;
+
+    const draggedIndex = cards.findIndex(c => c.id === draggedCard.id);
+    const targetIndex = cards.findIndex(c => c.id === targetCard.id);
+
+    const newCards = [...cards];
+    [newCards[draggedIndex], newCards[targetIndex]] = [newCards[targetIndex], newCards[draggedIndex]];
+
+    setCards(newCards);
+    setDraggedCard(null);
+  };
+
+  const handleDragEnd = () => {
+    setDraggedCard(null);
+  };
 
   return (
     <div className="
@@ -63,18 +92,30 @@ function CardsList(props: CardsListProps) {
         lg:grid-cols-3
         gap-6
       ">
-        {cardsToDisplay.map((card) => (
+        {cards.map((card) => (
           <div
             key={card.id}
-            className="
+            draggable
+            onDragStart={() => handleDragStart(card)}
+            onDragOver={handleDragOver}
+            onDrop={() => handleDrop(card)}
+            onDragEnd={handleDragEnd}
+            className={`
               bg-white
               rounded-lg
               shadow-md
               p-6
               hover:shadow-lg
-              transition-shadow
+              transition-all
               duration-300
-            "
+              cursor-grab
+              active:cursor-grabbing
+              ${
+                draggedCard?.id === card.id
+                  ? 'opacity-50 ring-2 ring-blue-400'
+                  : ''
+              }
+            `}
           >
             <div className="
               flex
