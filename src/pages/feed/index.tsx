@@ -1,5 +1,6 @@
 import Avatar from "../../components/Avatar"
 import FeedGrid from "../../components/Grids/Index"
+import CardsList from "../../components/CardsList"
 
 function FeedPage() {
   return (
@@ -10,6 +11,9 @@ function FeedPage() {
       </div>
       <div className="mt-10">
         <FeedGrid />
+      </div>
+      <div className="mt-10">
+        <CardsList />
       </div>
     </>
   );
