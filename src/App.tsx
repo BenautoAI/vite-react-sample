@@ -1,11 +1,11 @@
 import './App.css'
-import FeedPage from './pages/feed'
+import PropertySearchDemo from './components/PropertySearch/tempRenderFile'
 
 function App() {
 
   return (
     <>
-      <FeedPage />
+      <PropertySearchDemo />
     </>
   )
 }
