@@ -21,7 +21,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onPropertyTypeChange }
     <section className="border-b border-gray-200 bg-white px-6 py-16 md:px-12 md:py-24">
       <div className="mx-auto max-w-2xl">
         {/* Headline and Subheading */}
-        <h1 className="text-center text-4xl font-bold text-black md:text-5xl">
+        <h1 className="border-2 border-red-500 text-center text-4xl font-bold text-black md:text-5xl">
           Let's Find Your Ideal Space
         </h1>
         <p className="mt-6 text-center text-lg text-gray-600">
