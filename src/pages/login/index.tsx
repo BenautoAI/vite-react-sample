@@ -53,7 +53,6 @@ function LoginPage() {
     const newErrors = validateForm();
     
     if (Object.keys(newErrors).length === 0) {
-      console.log('Form submitted:', formData);
       // Handle login here
     } else {
       setErrors(newErrors);
