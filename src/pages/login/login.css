@@ -11,24 +11,23 @@
 .login__content {
   @apply flex
     w-full
-    max-w-6xl
-    gap-12
-    items-center
-    justify-between;
+    max-w-2xl
+    justify-center;
 }
 
 /* Avatar Section */
 .login__avatar-section {
-  @apply flex-1
-    flex
-    items-center
-    justify-center
-    min-h-full;
+  @apply absolute
+    left-1/2
+    top-0
+    -translate-x-1/2
+    -translate-y-1/2
+    z-10;
 }
 
 .login__avatar {
-  @apply w-80
-    h-80
+  @apply w-64
+    h-64
     flex
     items-center
     justify-center
@@ -49,11 +48,13 @@
 
 /* Form Section */
 .login__form-section {
-  @apply flex-1
+  @apply relative
     flex
     flex-col
     gap-6
-    max-w-md;
+    w-full
+    max-w-md
+    pt-40;
 }
 
 .login__title {
@@ -192,22 +193,16 @@
 /* Responsive Design */
 @media (max-width: 1024px) {
   .login__content {
-    @apply flex-col
-      gap-8
-      p-6;
-  }
-
-  .login__avatar-section {
-    @apply min-h-0;
+    @apply p-6;
   }
 
   .login__avatar {
-    @apply w-64
-      h-64;
+    @apply w-56
+      h-56;
   }
 
   .login__form-section {
-    @apply w-full;
+    @apply pt-32;
   }
 }
 
@@ -217,13 +212,16 @@
   }
 
   .login__content {
-    @apply gap-4
-      p-4;
+    @apply p-4;
   }
 
   .login__avatar {
-    @apply w-48
-      h-48;
+    @apply w-40
+      h-40;
+  }
+
+  .login__form-section {
+    @apply pt-24;
   }
 
   .login__title {
