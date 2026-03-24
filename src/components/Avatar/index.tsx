@@ -23,7 +23,7 @@ function Avatar({
     <div className="flex w-full flex-row items-center gap-8">
       {/* Avatar photo with gradient border */}
       <div className="group flex-shrink-0">
-        <div className="relative h-32 w-32 rounded-full bg-gradient-to-r from-[#6EE7B7] via-[#3B82F6] to-[#9333EA] p-[3px]">
+        <div className="relative h-32 w-32 rounded-full border-4 border-red-500 bg-gradient-to-r from-[#6EE7B7] via-[#3B82F6] to-[#9333EA] p-[3px]">
           <img
             src={photoSrc}
             alt={realname || "User avatar"}
