@@ -7,4 +7,14 @@ module.exports = {
   rules: {
     'react-refresh/only-export-components': 'warn',
   },
+  overrides: [
+    {
+      files: ['**/*.stories.tsx', '**/*.stories.ts'],
+      rules: {
+        'storybook/hierarchy-separator': 'off',
+        'storybook/prefer-pascal-case': 'off',
+        'storybook/story-exports': 'off',
+      },
+    },
+  ],
 }
