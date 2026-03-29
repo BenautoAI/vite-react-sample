@@ -11,6 +11,10 @@ function Avatar(props: AvatarProps) {
       flex-row
       items-center
       w-full
+      border-2
+      border-red-500
+      p-4
+      rounded-lg
       '>
 
       <div className='avatar__photo mr-20'>
