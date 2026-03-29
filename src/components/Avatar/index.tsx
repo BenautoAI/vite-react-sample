@@ -26,7 +26,7 @@ function Avatar(props: AvatarProps) {
   const isDisabled = props.isDisabled ?? false;
   return (
     <div className="flex flex-row items-center gap-8" style={{ padding: '20px' }}>
-      {/* Avatar image with gradient border */}
+      {/* Avatar image with gradient border and red outline */}
       <div className="relative flex-shrink-0">
         <div
           style={{
@@ -38,6 +38,7 @@ function Avatar(props: AvatarProps) {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
+            border: '4px solid #EF4444',
           }}
         >
           <img
