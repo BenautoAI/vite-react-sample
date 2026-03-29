@@ -1,52 +1,39 @@
 interface AvatarProps {
-  nickname: string,
-  realname: string
+  nickname: string;
+  realname: string;
 }
 
 function Avatar(props: AvatarProps) {
   return (
-    <div className='
-      avatar__container 
-      flex 
-      flex-row
-      items-center
-      w-full
-      '>
-
-      <div className='avatar__photo mr-20'>
-        <img
-          className='
-          rounded-full
-          hover:scale-x-110
-          hover:scale-y-110
-          animation-delay: 999s;
-          hover:animate-
-          bg-gradient-to-r 
-          p-[6px] 
-          from-[#6EE7B7] via-[#3B82F6] to-[#9333EA]"
-          '
-          src="./src/assets/photo.png"
-        />
+    <div className="flex flex-row items-center w-full gap-8">
+      <div className="flex-shrink-0">
+        <div className="bg-gradient-to-r from-[#6EE7B7] via-[#3B82F6] to-[#9333EA] p-[6px] rounded-full">
+          <img
+            className="rounded-full hover:scale-110 transition-transform duration-300"
+            src="/src/assets/photo.png"
+            alt="Avatar"
+          />
+        </div>
       </div>
 
-      <div className='avatar__texts text-center justify-between'>
-
-        <div className='text__title'>
-          <h1>{props.nickname}</h1>
+      <div className="flex flex-col justify-center text-center">
+        <div>
+          <h1 className="text-lg font-bold">{props.nickname}</h1>
         </div>
 
-        <div className='text__name mt-3'>
-          <h2>{props.realname}</h2>
+        <div className="mt-3">
+          <h2 className="text-base">{props.realname}</h2>
         </div>
 
-        <div className='text__follow'>
-          <button className='w-80 mt-5'>
+        <div className="mt-5">
+          <button
+            style={{ backgroundColor: '#3B82F6', color: '#ffffff', border: 'none' }}
+            className="px-6 py-2 rounded text-sm font-bold hover:opacity-90 transition-opacity"
+          >
             Follow
           </button>
         </div>
-
       </div>
-
     </div>
   );
 }
