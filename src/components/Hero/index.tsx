@@ -17,7 +17,7 @@ function Hero({
     <div style={{ width: '100%', backgroundColor: 'white', paddingLeft: '48px', paddingRight: '48px', paddingTop: '120px', paddingBottom: '80px', fontFamily: 'Montserrat, sans-serif', boxSizing: 'border-box' }}>
       {/* Hero Section */}
       <div style={{ marginBottom: '80px' }}>
-        <h1 style={{ fontSize: '80px', fontWeight: 800, color: '#000', marginBottom: '20px', lineHeight: 1.05, margin: '0 0 20px 0' }}>
+        <h1 style={{ fontSize: '80px', fontWeight: 800, color: '#000', marginBottom: '20px', lineHeight: 1.05, margin: '0 0 20px 0', border: '3px solid #dc2626', padding: '20px' }}>
           {title}
         </h1>
         <p style={{ fontSize: '26px', color: '#dc2626', fontWeight: 400, lineHeight: 1.4, margin: 0 }}>
