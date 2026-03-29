@@ -1,4 +1,5 @@
-import FeedCard, { GRADIENTS } from "../FeedCard";
+import FeedCard from "../FeedCard";
+import { GRADIENTS } from "../FeedCard/gradients";
 
 function FeedGrid() {
   return (
