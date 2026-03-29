@@ -25,14 +25,27 @@ type Story = StoryObj<typeof Avatar>;
 
 export const Default: Story = {
   args: {
-    nickname: '@username',
-    realname: 'Real Name',
+    nickname: '@mob_psycho',
+    realname: 'Shigeo Kageyama',
+    isLoading: false,
+    isDisabled: false,
   },
 };
 
-export const WithCustomName: Story = {
+export const Loading: Story = {
   args: {
     nickname: '@mob_psycho',
     realname: 'Shigeo Kageyama',
+    isLoading: true,
+    isDisabled: false,
+  },
+};
+
+export const Disabled: Story = {
+  args: {
+    nickname: '@mob_psycho',
+    realname: 'Shigeo Kageyama',
+    isLoading: false,
+    isDisabled: true,
   },
 };

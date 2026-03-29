@@ -2,21 +2,28 @@
  * AvatarProps - Properties for the Avatar component
  * @property {string} nickname - User's nickname/handle to display
  * @property {string} realname - User's real name to display
+ * @property {boolean} [isLoading=false] - Whether the follow action is in progress
+ * @property {boolean} [isDisabled=false] - Whether the button is disabled
  */
 interface AvatarProps {
   nickname: string;
   realname: string;
+  isLoading?: boolean;
+  isDisabled?: boolean;
 }
 
 /**
  * Avatar component displays a user profile with circular avatar image,
  * user information (nickname and real name), and a Follow button.
  * Features a gradient border (cyan → blue → purple) around the avatar.
+ * Supports loading and disabled states for the Follow button.
  *
  * @param props - Component props
  * @returns Rendered user profile avatar
  */
 function Avatar(props: AvatarProps) {
+  const isLoading = props.isLoading ?? false;
+  const isDisabled = props.isDisabled ?? false;
   return (
     <div className="flex flex-row items-center gap-8" style={{ padding: '20px' }}>
       {/* Avatar image with gradient border */}
@@ -61,18 +68,54 @@ function Avatar(props: AvatarProps) {
         {/* Follow button */}
         <div>
           <button
+            disabled={isLoading || isDisabled}
             style={{
               padding: '8px 24px',
-              backgroundColor: '#3B82F6',
+              backgroundColor: isDisabled ? '#D1D5DB' : '#3B82F6',
               color: '#ffffff',
               border: 'none',
               borderRadius: '8px',
               fontWeight: 500,
-              cursor: 'pointer',
+              cursor: isDisabled || isLoading ? 'not-allowed' : 'pointer',
+              opacity: isDisabled ? 0.6 : 1,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '8px',
+              minWidth: '80px',
             }}
           >
-            Follow
+            {isLoading ? (
+              <>
+                <div
+                  style={{
+                    width: '16px',
+                    height: '16px',
+                    border: '2px solid rgba(255, 255, 255, 0.3)',
+                    borderTop: '2px solid #ffffff',
+                    borderRadius: '50%',
+                    animation: 'spin 0.8s linear infinite',
+                  }}
+                />
+                <span>Loading</span>
+              </>
+            ) : (
+              'Follow'
+            )}
           </button>
+          {/* CSS for spinner animation */}
+          <style>
+            {`
+              @keyframes spin {
+                from {
+                  transform: rotate(0deg);
+                }
+                to {
+                  transform: rotate(360deg);
+                }
+              }
+            `}
+          </style>
         </div>
       </div>
     </div>
