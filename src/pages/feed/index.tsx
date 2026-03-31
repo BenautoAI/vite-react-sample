@@ -1,7 +1,19 @@
 import Avatar from "../../components/Avatar"
-import FeedGrid from "../../components/Grids/Index"
+import FeedList from "../../components/FeedList"
 
 function FeedPage() {
+  const feedItems = [
+    { title: "Foto Casa" },
+    { title: "Foto Casa" },
+    { title: "Foto Casa" },
+    { title: "Foto Casa" },
+    { title: "Foto Casa" },
+    { title: "Foto Casa" },
+    { title: "Foto Casa" },
+    { title: "Foto Casa" },
+    { title: "Foto Casa" },
+  ];
+
   return (
     <>
       <div>
@@ -9,7 +21,7 @@ function FeedPage() {
           realname="Felipe Aguiar" nickname="@Felipao__DIO🚀" />
       </div>
       <div className="mt-10">
-        <FeedGrid />
+        <FeedList items={feedItems} />
       </div>
     </>
   );
