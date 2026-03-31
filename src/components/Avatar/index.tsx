@@ -1,3 +1,5 @@
+import FollowButton from '../FollowButton';
+
 interface AvatarProps {
   nickname: string,
   realname: string
@@ -40,9 +42,7 @@ function Avatar(props: AvatarProps) {
         </div>
 
         <div className='text__follow'>
-          <button className='w-80 mt-5'>
-            Follow
-          </button>
+          <FollowButton />
         </div>
 
       </div>
