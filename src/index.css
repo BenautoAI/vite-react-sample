@@ -80,3 +80,15 @@ button:focus-visible {
 .debug {
   border: 1px solid red;
 }
+
+.followButton__btn {
+  /* Default styles for button */
+}
+
+.followButton__loading {
+  /* Loading state specific styles */
+}
+
+.followButton__disabled {
+  /* Disabled state specific styles */
+}
