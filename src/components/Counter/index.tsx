@@ -32,7 +32,7 @@ function Counter(props: CounterProps) {
         </button>
 
         <button 
-          className='counter__button counter__button--increment px-6 py-3'
+          className='counter__button counter__button--increment bg-blue-600 text-white px-8 py-4 rounded-lg hover:bg-blue-700 transition-colors'
           onClick={handleIncrement}
         >
           Increment (+)
