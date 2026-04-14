@@ -41,7 +41,7 @@ function LoginPage() {
           <h1 className='
             text-4xl
             font-bold
-            text-black
+            text-red-600
             text-center
             mb-4
           '>
