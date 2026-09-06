@@ -1,5 +1,5 @@
 import Avatar from "../../components/Avatar"
-import FeedGrid from "../../components/Grids/Index"
+import FeedGrid from "../../components/Grids"
 
 function FeedPage() {
   return (
