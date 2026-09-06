@@ -6,7 +6,10 @@ function FeedPage() {
     <>
       <div>
         <Avatar
-          realname="Felipe Aguiar" nickname="@Felipao__DIO🚀" />
+          realname="Felipe Aguiar"
+          nickname="@Felipao__DIO🚀"
+          photoSrc="/src/assets/photo.png"
+        />
       </div>
       <div className="mt-10">
         <FeedGrid />

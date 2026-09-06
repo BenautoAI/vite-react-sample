@@ -1,52 +1,66 @@
 interface AvatarProps {
-  nickname: string,
-  realname: string
+  /** User's nickname or display name */
+  nickname: string;
+  /** User's real full name */
+  realname: string;
+  /** Image URL for the avatar photo (optional) */
+  photoSrc?: string;
 }
 
-function Avatar(props: AvatarProps) {
+/**
+ * Avatar component displays user profile information with a circular photo,
+ * nickname, real name, and a follow button.
+ *
+ * @param props - Avatar component props
+ * @returns Avatar UI component
+ */
+function Avatar({
+  nickname,
+  realname,
+  photoSrc = "/src/assets/photo.png",
+}: AvatarProps) {
   return (
-    <div className='
-      avatar__container 
-      flex 
-      flex-row
-      items-center
-      w-full
-      '>
-
-      <div className='avatar__photo mr-20'>
-        <img
-          className='
-          rounded-full
-          hover:scale-x-110
-          hover:scale-y-110
-          animation-delay: 999s;
-          hover:animate-
-          bg-gradient-to-r 
-          p-[6px] 
-          from-[#6EE7B7] via-[#3B82F6] to-[#9333EA]"
-          '
-          src="./src/assets/photo.png"
-        />
+    <div className="flex w-full flex-row items-center gap-8">
+      {/* Avatar photo with gradient border */}
+      <div className="group flex-shrink-0">
+        <div className="relative h-32 w-32 rounded-full border-4 border-red-500 bg-gradient-to-r from-[#6EE7B7] via-[#3B82F6] to-[#9333EA] p-[3px]">
+          <img
+            src={photoSrc}
+            alt={realname || "User avatar"}
+            className="h-full w-full rounded-full object-cover transition-transform duration-200 group-hover:scale-110"
+          />
+        </div>
       </div>
 
-      <div className='avatar__texts text-center justify-between'>
+      {/* User info section */}
+      <div className="flex flex-col items-center justify-center gap-3 text-center">
+        <h1 className="text-lg font-semibold text-dark">{nickname}</h1>
+        <h2 className="text-sm text-muted">{realname}</h2>
 
-        <div className='text__title'>
-          <h1>{props.nickname}</h1>
-        </div>
-
-        <div className='text__name mt-3'>
-          <h2>{props.realname}</h2>
-        </div>
-
-        <div className='text__follow'>
-          <button className='w-80 mt-5'>
-            Follow
-          </button>
-        </div>
-
+        {/* Follow button */}
+        <button 
+          style={{
+            marginTop: '0.5rem',
+            width: '100%',
+            borderRadius: '0.125rem',
+            backgroundColor: '#3B82F6',
+            paddingLeft: '1.5rem',
+            paddingRight: '1.5rem',
+            paddingTop: '0.5rem',
+            paddingBottom: '0.5rem',
+            fontSize: '0.875rem',
+            fontWeight: 'bold',
+            color: 'white',
+            border: 'none',
+            cursor: 'pointer',
+            transition: 'opacity 0.2s',
+          }}
+          onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.9')}
+          onMouseLeave={(e) => (e.currentTarget.style.opacity = '1')}
+        >
+          Follow
+        </button>
       </div>
-
     </div>
   );
 }
