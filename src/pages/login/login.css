@@ -1,0 +1,234 @@
+/* Login Container and Layout */
+.login__container {
+  @apply flex
+    h-screen
+    w-full
+    items-center
+    justify-center
+    bg-white;
+}
+
+.login__content {
+  @apply flex
+    w-full
+    max-w-2xl
+    justify-center;
+}
+
+/* Avatar Section */
+.login__avatar-section {
+  @apply absolute
+    left-1/2
+    top-0
+    -translate-x-1/2
+    -translate-y-1/2
+    z-10;
+}
+
+.login__avatar {
+  @apply w-64
+    h-64
+    flex
+    items-center
+    justify-center
+    rounded-full
+    overflow-hidden
+    border-8;
+  background: linear-gradient(135deg, #6EE7B7, #3B82F6, #9333EA);
+  border-color: transparent;
+  padding: 4px;
+}
+
+.login__avatar-image {
+  @apply w-full
+    h-full
+    rounded-full
+    object-cover;
+}
+
+/* Form Section */
+.login__form-section {
+  @apply relative
+    flex
+    flex-col
+    gap-6
+    w-full
+    max-w-md
+    pt-40;
+}
+
+.login__title {
+  @apply text-4xl
+    font-bold
+    text-gray-900
+    tracking-tight;
+}
+
+.login__subtitle {
+  @apply text-lg
+    text-gray-600
+    mb-6;
+}
+
+/* Form Styling */
+.login__form {
+  @apply flex
+    flex-col
+    gap-6
+    mb-4;
+}
+
+.login__form-group {
+  @apply flex
+    flex-col
+    gap-2;
+}
+
+.login__label {
+  @apply text-sm
+    font-semibold
+    text-gray-900;
+}
+
+.login__input {
+  @apply w-full
+    px-4
+    py-3
+    border
+    border-gray-300
+    rounded-lg
+    text-base
+    text-gray-900
+    placeholder-gray-500
+    transition-all
+    duration-200
+    focus:outline-none
+    focus:ring-2
+    focus:ring-blue-500
+    focus:border-transparent;
+}
+
+.login__input:hover:not(:focus) {
+  @apply border-gray-400;
+}
+
+.login__input--error {
+  @apply border-red-500
+    focus:ring-red-500;
+}
+
+.login__error-message {
+  @apply text-sm
+    text-red-600
+    font-medium;
+}
+
+/* Password Input with Toggle */
+.login__password-wrapper {
+  @apply relative
+    flex
+    items-center;
+}
+
+.login__password-wrapper .login__input {
+  @apply pr-12;
+}
+
+.login__show-password-btn {
+  @apply absolute
+    right-4
+    bg-transparent
+    border-none
+    cursor-pointer
+    text-xl
+    p-0
+    hover:opacity-70
+    transition-opacity;
+}
+
+/* Submit Button */
+.login__submit-btn {
+  @apply w-full
+    py-3
+    px-4
+    bg-gray-900
+    text-white
+    font-bold
+    rounded-lg
+    border-none
+    cursor-pointer
+    transition-all
+    duration-200
+    hover:bg-gray-800
+    active:bg-gray-950;
+}
+
+.login__submit-btn:disabled {
+  @apply opacity-50
+    cursor-not-allowed;
+}
+
+/* Sign Up and Forgot Password Links */
+.login__signup-link,
+.login__forgot-password {
+  @apply text-center
+    text-sm
+    text-gray-600;
+}
+
+.login__signup-link {
+  @apply py-2;
+}
+
+.login__link {
+  @apply text-blue-600
+    font-semibold
+    no-underline
+    transition-colors
+    duration-200
+    hover:text-blue-800
+    hover:underline;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .login__content {
+    @apply p-6;
+  }
+
+  .login__avatar {
+    @apply w-56
+      h-56;
+  }
+
+  .login__form-section {
+    @apply pt-32;
+  }
+}
+
+@media (max-width: 640px) {
+  .login__container {
+    @apply min-h-screen;
+  }
+
+  .login__content {
+    @apply p-4;
+  }
+
+  .login__avatar {
+    @apply w-40
+      h-40;
+  }
+
+  .login__form-section {
+    @apply pt-24;
+  }
+
+  .login__title {
+    @apply text-2xl;
+  }
+
+  .login__subtitle {
+    @apply text-base;
+  }
+}
