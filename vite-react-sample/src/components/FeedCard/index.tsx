@@ -1,0 +1,1 @@
+/home/user/vite-react-sample/src/components/FeedCard/index.tsx

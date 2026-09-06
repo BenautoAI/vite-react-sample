@@ -1,11 +1,6 @@
-import Avatar from "../../components/Avatar";
-import FeedGrid from "../../components/Grids/Index";
+import Avatar from "../../components/Avatar"
+import FeedGrid from "../../components/Grids/Index"
 
-/**
- * FeedPage component displaying user profile and feed content.
- * Shows an avatar section with user information and a grid of feed cards
- * with vibrant gradient borders for visual engagement.
- */
 function FeedPage() {
   return (
     <>

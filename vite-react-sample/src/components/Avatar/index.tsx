@@ -5,17 +5,6 @@ interface AvatarProps {
   altText?: string;
 }
 
-/**
- * Avatar component displaying user profile with gradient border.
- * Shows a circular avatar image with vibrant gradient border ring,
- * username, real name, and a follow button.
- *
- * @param props - Avatar properties
- * @param props.nickname - User's username/handle
- * @param props.realname - User's full name
- * @param props.imageUrl - Optional URL to user's profile image
- * @param props.altText - Optional alt text for image accessibility
- */
 function Avatar(props: AvatarProps) {
   const { nickname, realname, imageUrl, altText } = props;
   
