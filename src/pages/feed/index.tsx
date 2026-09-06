@@ -1,9 +1,11 @@
+import HeroSection from "../../components/HeroSection"
 import Avatar from "../../components/Avatar"
 import FeedGrid from "../../components/Grids/Index"
 
 function FeedPage() {
   return (
     <>
+      <HeroSection />
       <div>
         <Avatar
           realname="Felipe Aguiar" nickname="@Felipao__DIO🚀" />
